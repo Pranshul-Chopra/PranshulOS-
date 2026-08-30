@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PranshulOS — Your Productivity OS</title>
   <style>
-    /* ─── CONFIG (easy to update) ─────────────────────────── */
+    /* ─── CONFIG & CSS TOKENS ──────────────────────────────── */
     :root {
-      --version: "v2.3 stable";  /* update this for new releases */
-      --dl-url: "#";           /* swap with real .exe URL */
-      --feedback-url: "#";     /* swap with Google Form URL */
+      --version: "v2.3 stable";
+      --dl-url: "https://github.com/Pranshul-Chopra/PranshulOS-/releases/download/v2.3.0/PranshulOS.Setup.2.3.0.exe";
+      --feedback-url: "https://docs.google.com/forms/d/e/1FAIpQLSe8jN6FEH7zdEMFxweuku_0mdwlKUcYE1RTB00NjPMOPY0Xew/viewform?usp=publish-editor";
 
-      /* palette */
+      /* Core Dark Palette */
       --bg:        #0d0d0d;
       --surface:   #161616;
       --surface2:  #1e1e1e;
@@ -21,17 +20,17 @@
       --gold-dim:  #9a7530;
       --gold-glow: rgba(200,155,60,.18);
       --text:      #e8e8e8;
-      --muted:     #6b6b6b;
+      --muted:     #888888;
       --tag:       rgba(200,155,60,.12);
     }
 
-    /* ─── RESET ───────────────────────────────────────────── */
+    /* ─── RESET & BASE ─────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: 'Segoe UI', system-ui, sans-serif;
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
       font-size: 16px;
       line-height: 1.6;
       overflow-x: hidden;
@@ -48,7 +47,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 0 40px;
-      height: 56px;
+      height: 58px;
       background: rgba(13,13,13,.88);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
@@ -59,8 +58,18 @@
       font-weight: 700;
       color: var(--gold);
       letter-spacing: .06em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
-    .topbar-logo span { color: var(--muted); font-size: .7rem; margin-left: 8px; }
+    .topbar-logo span {
+      color: var(--muted);
+      font-size: .72rem;
+      background: var(--tag);
+      border: 1px solid rgba(200,155,60,.2);
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
     .topbar-actions { display: flex; gap: 12px; align-items: center; }
     .btn {
       display: inline-flex;
@@ -89,41 +98,40 @@
 
     /* ─── HERO ────────────────────────────────────────────── */
     .hero {
-      min-height: 100vh;
+      min-height: 94vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 80px 24px 60px;
+      padding: 100px 24px 70px;
       position: relative;
       overflow: hidden;
     }
-    /* subtle radial glow */
     .hero::before {
       content: '';
       position: absolute;
-      width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(200,155,60,.07) 0%, transparent 70%);
+      width: 760px; height: 760px;
+      background: radial-gradient(circle, rgba(200,155,60,.09) 0%, transparent 70%);
       top: 50%; left: 50%;
       transform: translate(-50%,-50%);
       pointer-events: none;
     }
     .hero-eyebrow {
       font-family: 'Courier New', monospace;
-      font-size: .72rem;
+      font-size: .75rem;
       letter-spacing: .16em;
       color: var(--gold);
       text-transform: uppercase;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
       opacity: 0;
       animation: fadeUp .6s .1s forwards;
     }
     .hero h1 {
-      font-size: clamp(2.2rem, 5vw, 4rem);
+      font-size: clamp(2.3rem, 5.2vw, 4.2rem);
       font-weight: 700;
-      line-height: 1.18;
-      max-width: 820px;
+      line-height: 1.15;
+      max-width: 860px;
       letter-spacing: -.02em;
       opacity: 0;
       animation: fadeUp .7s .25s forwards;
@@ -133,15 +141,15 @@
       color: var(--gold);
     }
     .hero-sub {
-      margin-top: 20px;
-      font-size: 1.05rem;
+      margin-top: 22px;
+      font-size: 1.1rem;
       color: var(--muted);
-      max-width: 520px;
+      max-width: 580px;
       opacity: 0;
       animation: fadeUp .7s .4s forwards;
     }
     .hero-cta {
-      margin-top: 44px;
+      margin-top: 40px;
       display: flex;
       gap: 14px;
       flex-wrap: wrap;
@@ -151,21 +159,21 @@
     }
     .btn-hero {
       padding: 13px 32px;
-      font-size: .92rem;
+      font-size: .94rem;
       border-radius: 8px;
     }
     .hero-badge {
-      margin-top: 60px;
+      margin-top: 52px;
       display: inline-flex;
       align-items: center;
       gap: 8px;
       background: var(--tag);
       border: 1px solid rgba(200,155,60,.2);
       border-radius: 100px;
-      padding: 6px 16px;
+      padding: 6px 18px;
       font-family: 'Courier New', monospace;
       font-size: .75rem;
-      color: var(--gold-dim);
+      color: var(--gold);
       opacity: 0;
       animation: fadeUp .7s .7s forwards;
     }
@@ -181,8 +189,8 @@
     .section-label {
       text-align: center;
       font-family: 'Courier New', monospace;
-      font-size: .7rem;
-      letter-spacing: .18em;
+      font-size: .72rem;
+      letter-spacing: .2em;
       text-transform: uppercase;
       color: var(--muted);
       margin-bottom: 72px;
@@ -191,9 +199,9 @@
     .feature-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 0;
+      gap: 48px;
       max-width: 1200px;
-      margin: 0 auto 0;
+      margin: 0 auto;
       padding: 72px 48px;
       align-items: center;
       border-top: 1px solid var(--border);
@@ -205,8 +213,8 @@
     .feature-row.reverse { direction: rtl; }
     .feature-row.reverse > * { direction: ltr; }
 
-    .feat-copy { padding: 0 40px 0 0; }
-    .feature-row.reverse .feat-copy { padding: 0 0 0 40px; }
+    .feat-copy { padding: 0 20px 0 0; }
+    .feature-row.reverse .feat-copy { padding: 0 0 0 20px; }
 
     .feat-tag {
       display: inline-block;
@@ -222,7 +230,7 @@
       margin-bottom: 18px;
     }
     .feat-copy h2 {
-      font-size: clamp(1.5rem, 2.5vw, 2.1rem);
+      font-size: clamp(1.6rem, 2.6vw, 2.2rem);
       font-weight: 700;
       letter-spacing: -.02em;
       line-height: 1.2;
@@ -230,9 +238,9 @@
     }
     .feat-copy p {
       color: var(--muted);
-      font-size: .95rem;
+      font-size: .96rem;
       line-height: 1.75;
-      max-width: 420px;
+      max-width: 440px;
     }
     .feat-pills {
       display: flex;
@@ -264,12 +272,13 @@
     .feat-img-wrap img {
       position: relative;
       z-index: 1;
+      width: 100%;
       border: 1px solid var(--border);
       border-radius: 10px;
       box-shadow: 0 24px 64px rgba(0,0,0,.55);
     }
 
-    /* placeholder when no real img */
+    /* Fallback UI Mockups when images are loading / missing */
     .feat-mock {
       position: relative;
       z-index: 1;
@@ -287,37 +296,34 @@
       align-items: center;
       gap: 10px;
     }
-    .mock-dot { width:10px;height:10px;border-radius:50%; }
+    .mock-dot { width: 10px; height: 10px; border-radius: 50%; }
     .mock-title {
-      font-family:'Courier New',monospace;
-      font-size:.68rem;
-      color:var(--gold);
-      letter-spacing:.08em;
+      font-family: 'Courier New', monospace;
+      font-size: .68rem;
+      color: var(--gold);
+      letter-spacing: .08em;
     }
     .mock-body { padding: 24px; }
 
-    /* ─── SCREENSHOT FRAMES ───────────────────────────────── */
-    /* We embed the actual screenshots as base64 below in <img> tags */
-
-    /* ─── CTA FINAL ───────────────────────────────────────── */
+    /* ─── FINAL CTA ───────────────────────────────────────── */
     .final-cta {
       text-align: center;
       padding: 100px 24px 120px;
       border-top: 1px solid var(--border);
-      background: radial-gradient(ellipse 80% 60% at 50% 100%, rgba(200,155,60,.07), transparent);
+      background: radial-gradient(ellipse 80% 60% at 50% 100%, rgba(200,155,60,.08), transparent);
       opacity: 0;
       transform: translateY(30px);
       transition: opacity .7s, transform .7s;
     }
     .final-cta.visible { opacity: 1; transform: translateY(0); }
     .final-cta h2 {
-      font-size: clamp(1.8rem, 3.5vw, 3rem);
+      font-size: clamp(1.9rem, 3.6vw, 3.2rem);
       font-weight: 700;
       letter-spacing: -.02em;
       margin-bottom: 14px;
     }
-    .final-cta p { color: var(--muted); margin-bottom: 40px; font-size: .95rem; }
-    .final-cta .btn-hero { font-size: 1rem; padding: 16px 40px; }
+    .final-cta p { color: var(--muted); margin-bottom: 40px; font-size: .98rem; }
+    .final-cta .btn-hero { font-size: 1rem; padding: 16px 42px; }
 
     /* ─── FOOTER ──────────────────────────────────────────── */
     footer {
@@ -331,11 +337,11 @@
     }
     .footer-brand {
       font-family: 'Courier New', monospace;
-      font-size: .8rem;
+      font-size: .82rem;
       color: var(--gold);
       letter-spacing: .06em;
     }
-    .footer-right { font-size: .75rem; color: var(--muted); }
+    .footer-right { font-size: .78rem; color: var(--muted); }
 
     /* ─── ANIMATIONS ─────────────────────────────────────── */
     @keyframes fadeUp {
@@ -349,9 +355,10 @@
         grid-template-columns: 1fr;
         padding: 56px 24px;
         direction: ltr !important;
+        gap: 32px;
       }
       .feature-row.reverse > * { direction: ltr; }
-      .feat-copy { padding: 0 0 32px !important; }
+      .feat-copy { padding: 0 !important; }
       .topbar { padding: 0 20px; }
     }
     @media (max-width: 540px) {
@@ -359,7 +366,6 @@
       .btn-hero { width: 100%; justify-content: center; }
     }
 
-    /* ─── SCROLL ANCHOR ──────────────────────────────────── */
     #features { scroll-margin-top: 70px; }
   </style>
 </head>
@@ -375,31 +381,27 @@
       ✦ Feedback
     </a>
     <a class="btn btn-gold" href="YOUR_SETUP_EXE_URL" download="PranshulOS-setup.exe">
-      ↓ Download
+      ↓ Download v2.3
     </a>
   </div>
 </nav>
-/Your entire workflow.
 
-Notes. Tasks. Tickets.
-
-One offline workspace.
 <!-- ══════════════ HERO ══════════════ -->
 <section class="hero">
   <p class="hero-eyebrow">Personal Productivity OS · v2.3 stable</p>
-  <h1>Your entire workflow <br>Notes , tasks ,Tickets..<br>One offline workspace<br><em>PranshulOS.</em></h1>
-  <p class="hero-sub">One dark, fluid workspace for your tasks, docs, routines, and tickets — all offline, all yours.</p>
+  <h1>Your entire workflow.<br>Notes. Tasks. Blueprints. Tickets.<br><em>One offline workspace.</em></h1>
+  <p class="hero-sub">A dark, fluid command center for your thoughts, routines, and workflows — completely local-first, customizable, and companion-powered.</p>
   <div class="hero-cta">
     <a class="btn btn-gold btn-hero" href="YOUR_SETUP_EXE_URL" download="PranshulOS-setup.exe">
       ↓ Download Now — Free
     </a>
     <a class="btn btn-ghost btn-hero" href="#features">
-      See How It Works ↓
+      Explore Features ↓
     </a>
   </div>
   <div class="hero-badge">
     <div class="badge-dot"></div>
-    v2.3 · Stable Release · Windows
+    v2.3 · 100% Offline &amp; Local SQLite · Windows
   </div>
 </section>
 
@@ -413,24 +415,24 @@ One offline workspace.
       <span class="feat-tag">HOME</span>
       <h2>Your launchpad,<br>ready when you are.</h2>
       <p>
-        Good morning, good evening — PranshulOS greets you by name. Quick-launch your most-used sites in one click, fire off natural-language commands ("open spotify", "github"), and glance at today's routine and pending tasks without switching apps.
+        Personalized daily greeting, single-click launchers for your favorite URLs, and natural-language command triggers. Glance at your routines, agenda, and habit health instantly without app context-switching.
       </p>
       <div class="feat-pills">
         <span class="pill">Quick Launch tiles</span>
         <span class="pill">Natural language input</span>
         <span class="pill">Today's routine snapshot</span>
-        <span class="pill">Task overview</span>
+        <span class="pill">Habit streak health</span>
       </div>
     </div>
     <div class="feat-img-wrap">
-      <img src = "home.jpg" alt ="PranshulOS Home Screenshot"
+      <img src="home.jpg" alt="PranshulOS Home Launchpad"
            onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
       <div class="feat-mock" style="display:none;">
         <div class="mock-bar">
           <div class="mock-dot" style="background:#ff5f56"></div>
           <div class="mock-dot" style="background:#ffbd2e"></div>
           <div class="mock-dot" style="background:#27c93f"></div>
-          <span class="mock-title">HOME — QUICK LAUNCH</span>
+          <span class="mock-title">HOME — LAUNCHPAD</span>
         </div>
         <div class="mock-body">
           <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px;margin-bottom:16px;">
@@ -439,88 +441,85 @@ One offline workspace.
             <div style="background:#1e1e1e;border:1px solid #2a2a2a;border-radius:8px;padding:20px 12px;text-align:center;font-size:.7rem;color:#c89b3c;">● WhatsApp</div>
             <div style="background:#1e1e1e;border:1px solid #2a2a2a;border-radius:8px;padding:20px 12px;text-align:center;font-size:.7rem;color:#c89b3c;">✦ Discord</div>
           </div>
-          <div style="background:#161616;border:1px solid #2a2a2a;border-radius:8px;padding:12px 16px;font-family:'Courier New',monospace;font-size:.72rem;color:#6b6b6b;">try "bored", "github", "spotify"...</div>
-          <div style="margin-top:12px;font-family:'Courier New',monospace;font-size:.7rem;color:#6b6b6b;">→ what do you need?</div>
+          <div style="background:#161616;border:1px solid #2a2a2a;border-radius:8px;padding:12px 16px;font-family:'Courier New',monospace;font-size:.72rem;color:#6b6b6b;">try "github", "spotify", "docs"...</div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- 2. DASHBOARD — Task Manager -->
+  <!-- 2. DASHBOARD — Task & Goal Manager -->
   <div class="feature-row reverse" data-reveal>
     <div class="feat-copy">
       <span class="feat-tag">DASHBOARD</span>
       <h2>Tasks with time slots,<br>not just to-dos.</h2>
       <p>
-        Add tasks for today with precise time slots, stack leftover work automatically from previous days, and track completion rates week-over-week. The calendar view lets you jump to any day and see its full picture at a glance.
+        Schedule today's tasks with precise time slots, automatically roll over unfinished work with stack preservation, and manage high-level quarterly goals alongside your daily calendar.
       </p>
       <div class="feat-pills">
-        <span class="pill">Today / Selected Day views</span>
-        <span class="pill">Time-slot scheduling</span>
-        <span class="pill">Stacked from previous days</span>
-        <span class="pill">Weekly calendar</span>
-        <span class="pill">Main goals panel</span>
+        <span class="pill">Time-slot scheduling (HH:MM)</span>
+        <span class="pill">Stacked rollover items</span>
+        <span class="pill">Interactive calendar</span>
+        <span class="pill">Main goals progress</span>
       </div>
     </div>
     <div class="feat-img-wrap">
-      <img src = "dashboard.jpg" alt ="PranshulOS Dashboard Screenshot"
+      <img src="dashboard.jpg" alt="PranshulOS Dashboard"
            onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
       <div class="feat-mock" style="display:none;">
         <div class="mock-bar">
           <div class="mock-dot" style="background:#ff5f56"></div>
           <div class="mock-dot" style="background:#ffbd2e"></div>
           <div class="mock-dot" style="background:#27c93f"></div>
-          <span class="mock-title">DASHBOARD</span>
+          <span class="mock-title">DASHBOARD — AGENDA &amp; GOALS</span>
         </div>
         <div class="mock-body">
           <div style="display:flex;gap:12px;margin-bottom:12px;">
             <span style="font-size:.72rem;color:#c89b3c;border-bottom:1px solid #c89b3c;padding-bottom:4px;">TODAY</span>
             <span style="font-size:.72rem;color:#6b6b6b;">SELECTED DAY</span>
           </div>
-          <div style="background:#161616;border:1px solid #2a2a2a;border-radius:6px;padding:12px;margin-bottom:10px;font-size:.72rem;color:#6b6b6b;font-family:'Courier New',monospace;">NOTHING HERE</div>
-          <div style="font-size:.65rem;color:#6b6b6b;margin-bottom:8px;">▸ DONE TODAY ( 0 )</div>
+          <div style="background:#161616;border:1px solid #2a2a2a;border-radius:6px;padding:12px;margin-bottom:10px;font-size:.72rem;color:#e8e8e8;font-family:'Courier New',monospace;">11:00 – 12:30 · System Architecture Refactor</div>
           <div style="font-size:.65rem;color:#c89b3c;font-family:'Courier New',monospace;text-transform:uppercase;margin-bottom:6px;">Stacked from previous days</div>
-          <div style="background:#161616;border:1px solid #2a2a2a;border-radius:6px;padding:12px;font-size:.72rem;color:#6b6b6b;font-family:'Courier New',monospace;">NOTHING STACKED</div>
+          <div style="background:#161616;border:1px solid #2a2a2a;border-radius:6px;padding:10px;font-size:.72rem;color:#888;">Complete API Security Audit</div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- 3. DOCS -->
+  <!-- 3. DOCS & PINNING -->
   <div class="feature-row" data-reveal>
     <div class="feat-copy">
       <span class="feat-tag">DOCS</span>
       <h2>Notes, docs, and ideas—<br>searchable in seconds.</h2>
       <p>
-        A distraction-free document workspace that stores everything locally and exports in docx/.txt format. Favourite important docs, search across all your notes instantly, and keep your thinking organised in card-grid format so nothing gets buried.
+        Distraction-free plain-text note writing with instant search. Pin your most critical reference sheets to the top, organize documents in card grids, and export cleanly to DOCX or plain TXT formats.
       </p>
       <div class="feat-pills">
-        <span class="pill">Searchable document grid</span>
-        <span class="pill">Favourites system</span>
-        <span class="pill">Local-first storage</span>
-        <span class="pill">One-click new doc</span>
+        <span class="pill">Document pinning</span>
+        <span class="pill">Instant full-text filter</span>
+        <span class="pill">DOCX / TXT exports</span>
+        <span class="pill">Local SQLite storage</span>
       </div>
     </div>
     <div class="feat-img-wrap">
-        <img src = "docs.jpg" alt = "PranshulOS Docs"
+      <img src="docs.jpg" alt="PranshulOS Docs"
            onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
       <div class="feat-mock" style="display:none;">
         <div class="mock-bar">
           <div class="mock-dot" style="background:#ff5f56"></div>
           <div class="mock-dot" style="background:#ffbd2e"></div>
           <div class="mock-dot" style="background:#27c93f"></div>
-          <span class="mock-title">DOCS</span>
+          <span class="mock-title">DOCS &amp; NOTES</span>
         </div>
         <div class="mock-body">
           <div style="background:#161616;border:1px solid #2a2a2a;border-radius:6px;padding:10px 14px;font-size:.72rem;color:#6b6b6b;margin-bottom:16px;font-family:'Courier New',monospace;">search documents...</div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
-            <div style="background:#161616;border:1px solid #2a2a2a;border-radius:8px;padding:14px;font-size:.72rem;">
-              <div style="color:#e8e8e8;font-weight:600;margin-bottom:6px;">FEATURE BACKLOG</div>
-              <div style="color:#6b6b6b;font-size:.65rem;">Pranshul-OS Future Feature Backlog...</div>
+            <div style="background:#161616;border:1px solid #c89b3c44;border-radius:8px;padding:14px;font-size:.72rem;">
+              <div style="color:#c89b3c;font-weight:600;margin-bottom:4px;">📌 CORE ARCHITECTURE</div>
+              <div style="color:#6b6b6b;font-size:.65rem;">System specification and local SQLite storage...</div>
             </div>
             <div style="background:#161616;border:1px solid #2a2a2a;border-radius:8px;padding:14px;font-size:.72rem;">
-              <div style="color:#e8e8e8;font-weight:600;margin-bottom:6px;">FRD TEMPLATE</div>
-              <div style="color:#6b6b6b;font-size:.65rem;">Feature Goal Problem Statement...</div>
+              <div style="color:#e8e8e8;font-weight:600;margin-bottom:4px;">SECURITY HANDBOOK</div>
+              <div style="color:#6b6b6b;font-size:.65rem;">Incident logs, origin controls, and CSP audit...</div>
             </div>
           </div>
         </div>
@@ -534,17 +533,17 @@ One offline workspace.
       <span class="feat-tag">ROUTINE · WEEKLY</span>
       <h2>Plan the whole week,<br>once and for all.</h2>
       <p>
-        Set recurring tasks per day with time slots. PranshulOS automatically injects your weekly routine into the Dashboard on the right day — so your recurring commitments never get lost, and Monday always starts on the right foot.
+        Set recurring daily routine blocks with start and end times. PranshulOS automatically syncs your routine into today's Dashboard schedule, highlighting the active day column dynamically.
       </p>
       <div class="feat-pills">
         <span class="pill">7-day column planner</span>
-        <span class="pill">Time-slot tasks</span>
-        <span class="pill">Auto-inject into Dashboard</span>
-        <span class="pill">Routine persistence</span>
+        <span class="pill">Active day highlight</span>
+        <span class="pill">Auto-inject to agenda</span>
+        <span class="pill">Habit persistence</span>
       </div>
     </div>
     <div class="feat-img-wrap">
-      <img src = "weekly.jpg" alt = "PranshulOS Weekly Planner"
+      <img src="weekly.jpg" alt="PranshulOS Weekly Planner"
            onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
       <div class="feat-mock" style="display:none;">
         <div class="mock-bar">
@@ -555,33 +554,33 @@ One offline workspace.
         </div>
         <div class="mock-body">
           <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:6px;">
-            <div style="background:#161616;border:1px solid #2a2a2a;border-radius:6px;padding:8px;font-size:.6rem;">
-              <div style="color:#6b6b6b;margin-bottom:6px;font-family:'Courier New',monospace;">MON</div>
-              <div style="background:#1e1e1e;border-radius:4px;padding:6px;color:#c89b3c;font-size:.58rem;">11:00–12:00<br><span style="color:#e8e8e8;">DSA Revision</span></div>
+            <div style="background:#161616;border:1px solid #2a2a2a;border-radius:6px;padding:8px;font-size:.6rem;text-align:center;">
+              <div style="color:#6b6b6b;margin-bottom:4px;font-family:'Courier New',monospace;">MON</div>
+              <div style="color:#c89b3c;font-size:.58rem;">DSA</div>
             </div>
-            <div style="background:#161616;border:1px solid #2a2a2a;border-radius:6px;padding:8px;font-size:.6rem;">
-              <div style="color:#6b6b6b;margin-bottom:6px;font-family:'Courier New',monospace;">TUE</div>
-              <div style="background:#1e1e1e;border-radius:4px;padding:6px;color:#c89b3c;font-size:.58rem;">9:30–10:30<br><span style="color:#e8e8e8;">COA Revision</span></div>
+            <div style="background:#161616;border:1px solid #2a2a2a;border-radius:6px;padding:8px;font-size:.6rem;text-align:center;">
+              <div style="color:#6b6b6b;margin-bottom:4px;font-family:'Courier New',monospace;">TUE</div>
+              <div style="color:#c89b3c;font-size:.58rem;">COA</div>
             </div>
-            <div style="background:#1a1a0f;border:1px solid #c89b3c44;border-radius:6px;padding:8px;font-size:.6rem;">
-              <div style="color:#c89b3c;margin-bottom:6px;font-family:'Courier New',monospace;">WED</div>
-              <div style="background:#1e1e1e;border-radius:4px;padding:6px;color:#c89b3c;font-size:.58rem;">11:00–12:00<br><span style="color:#e8e8e8;">OOP Revision</span></div>
+            <div style="background:#1a1a0f;border:1px solid #c89b3c;border-radius:6px;padding:8px;font-size:.6rem;text-align:center;">
+              <div style="color:#c89b3c;font-weight:700;margin-bottom:4px;font-family:'Courier New',monospace;">WED (TODAY)</div>
+              <div style="color:#fff;font-size:.58rem;">SYSTEMS</div>
             </div>
-            <div style="background:#161616;border:1px solid #2a2a2a;border-radius:6px;padding:8px;font-size:.6rem;">
-              <div style="color:#6b6b6b;margin-bottom:6px;font-family:'Courier New',monospace;">THU</div>
-              <div style="background:#1e1e1e;border-radius:4px;padding:6px;color:#c89b3c;font-size:.58rem;">9:30–10:30<br><span style="color:#e8e8e8;">PnS Revision</span></div>
+            <div style="background:#161616;border:1px solid #2a2a2a;border-radius:6px;padding:8px;font-size:.6rem;text-align:center;">
+              <div style="color:#6b6b6b;margin-bottom:4px;font-family:'Courier New',monospace;">THU</div>
+              <div style="color:#c89b3c;font-size:.58rem;">P&amp;S</div>
             </div>
-            <div style="background:#161616;border:1px solid #2a2a2a;border-radius:6px;padding:8px;font-size:.6rem;">
-              <div style="color:#6b6b6b;margin-bottom:6px;font-family:'Courier New',monospace;">FRI</div>
-              <div style="background:#1e1e1e;border-radius:4px;padding:6px;color:#c89b3c;font-size:.58rem;">11:00–12:00<br><span style="color:#e8e8e8;">RDBMS</span></div>
+            <div style="background:#161616;border:1px solid #2a2a2a;border-radius:6px;padding:8px;font-size:.6rem;text-align:center;">
+              <div style="color:#6b6b6b;margin-bottom:4px;font-family:'Courier New',monospace;">FRI</div>
+              <div style="color:#c89b3c;font-size:.58rem;">DBMS</div>
             </div>
-            <div style="background:#161616;border:1px solid #2a2a2a;border-radius:6px;padding:8px;font-size:.6rem;">
-              <div style="color:#6b6b6b;margin-bottom:6px;font-family:'Courier New',monospace;">SAT</div>
-              <div style="background:#1e1e1e;border-radius:4px;padding:6px;color:#c89b3c;font-size:.58rem;">10:00–10:45<br><span style="color:#e8e8e8;">NPTEL</span></div>
+            <div style="background:#161616;border:1px solid #2a2a2a;border-radius:6px;padding:8px;font-size:.6rem;text-align:center;">
+              <div style="color:#6b6b6b;margin-bottom:4px;font-family:'Courier New',monospace;">SAT</div>
+              <div style="color:#c89b3c;font-size:.58rem;">PROJECTS</div>
             </div>
-            <div style="background:#161616;border:1px solid #2a2a2a;border-radius:6px;padding:8px;font-size:.6rem;">
-              <div style="color:#6b6b6b;margin-bottom:6px;font-family:'Courier New',monospace;">SUN</div>
-              <div style="background:#1e1e1e;border-radius:4px;padding:6px;color:#e8e8e8;font-size:.58rem;">revision</div>
+            <div style="background:#161616;border:1px solid #2a2a2a;border-radius:6px;padding:8px;font-size:.6rem;text-align:center;">
+              <div style="color:#6b6b6b;margin-bottom:4px;font-family:'Courier New',monospace;">SUN</div>
+              <div style="color:#c89b3c;font-size:.58rem;">REVISION</div>
             </div>
           </div>
         </div>
@@ -595,17 +594,17 @@ One offline workspace.
       <span class="feat-tag">TICKETS</span>
       <h2>A personal ticket board<br>for real work.</h2>
       <p>
-        Manage your own backlog like a pro. Create tickets with priority labels (P0 / P1), due dates, and descriptions. Move them from Active to Done and reopen when needed — a lightweight Kanban that stays out of your way.
+        Lightweight personal Kanban with priority tagging (P0 / P1 / P2), start and end times, due date deadlines, and quick one-click completion toggles.
       </p>
       <div class="feat-pills">
-        <span class="pill">Active / Done columns</span>
-        <span class="pill">Priority labels P0–P1</span>
-        <span class="pill">Due dates</span>
-        <span class="pill">Edit · Done · Reopen · Delete</span>
+        <span class="pill">Active / Done boards</span>
+        <span class="pill">Priority labels P0–P2</span>
+        <span class="pill">Deadlines &amp; time slots</span>
+        <span class="pill">Contextual actions</span>
       </div>
     </div>
     <div class="feat-img-wrap">
-      <img src = "tickets.jpg" alt = "PranshulOS Tickets"
+      <img src="tickets.jpg" alt="PranshulOS Tickets"
            onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
       <div class="feat-mock" style="display:none;">
         <div class="mock-bar">
@@ -617,23 +616,18 @@ One offline workspace.
         <div class="mock-body">
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
             <div>
-              <div style="font-size:.65rem;color:#c89b3c;font-family:'Courier New',monospace;margin-bottom:10px;">ACTIVE · 2 tickets</div>
-              <div style="background:#1e1e1e;border:1px solid #2a2a2a;border-radius:8px;padding:14px;margin-bottom:10px;">
-                <div style="display:flex;justify-content:space-between;align-items:flex-start;">
-                  <span style="font-size:.78rem;color:#e8e8e8;">word document for oops java</span>
+              <div style="font-size:.65rem;color:#c89b3c;font-family:'Courier New',monospace;margin-bottom:10px;">ACTIVE TICKETS</div>
+              <div style="background:#1e1e1e;border:1px solid #2a2a2a;border-radius:8px;padding:12px;margin-bottom:8px;">
+                <div style="display:flex;justify-content:space-between;">
+                  <span style="font-size:.78rem;color:#e8e8e8;">Deploy Theme Engine v2.3</span>
                   <span style="background:#7f0000;border-radius:4px;padding:2px 7px;font-size:.6rem;color:#fff;">P0</span>
                 </div>
-                <div style="font-size:.65rem;color:#6b6b6b;margin-top:6px;">Due 2026-08-06</div>
-              </div>
-              <div style="background:#1e1e1e;border:1px solid #2a2a2a;border-radius:8px;padding:14px;">
-                <span style="font-size:.78rem;color:#e8e8e8;">Add time slots to tickets</span>
-                <span style="float:right;background:#c89b3c22;border-radius:4px;padding:2px 7px;font-size:.6rem;color:#c89b3c;">P1</span>
               </div>
             </div>
             <div>
-              <div style="font-size:.65rem;color:#6b6b6b;font-family:'Courier New',monospace;margin-bottom:10px;">DONE · 1 ticket</div>
-              <div style="background:#1e1e1e;border:1px solid #2a2a2a;border-radius:8px;padding:14px;opacity:.6;">
-                <span style="font-size:.78rem;color:#e8e8e8;">React-Bits try it</span>
+              <div style="font-size:.65rem;color:#6b6b6b;font-family:'Courier New',monospace;margin-bottom:10px;">COMPLETED</div>
+              <div style="background:#1e1e1e;border:1px solid #2a2a2a;border-radius:8px;padding:12px;opacity:.6;">
+                <span style="font-size:.78rem;color:#e8e8e8;">SVG Edge Rendering Bounds</span>
               </div>
             </div>
           </div>
@@ -641,340 +635,176 @@ One offline workspace.
       </div>
     </div>
   </div>
-  <!-- 7 Briefing Page -->
+
+  <!-- 6. DAILY BRIEFING -->
   <div class="feature-row reverse" data-reveal>
     <div class="feat-copy">
-      <span class="feat-tag">Briefing Page</span>
+      <span class="feat-tag">DAILY BRIEFING</span>
       <h2>A personal briefing letter<br>for your morning coffee.</h2>
       <p>
-        Displays your daily routine,tasks,analytics and tickets.
+        Opens automatically on first launch each day. Summarizes today's agenda, weekly routine commitments, urgent P0 tickets, and sticky scratchpads in a clean two-column digest.
       </p>
+      <div class="feat-pills">
+        <span class="pill">Once-per-day presentation</span>
+        <span class="pill">Unified agenda + tickets</span>
+        <span class="pill">Sticky notes glance</span>
+        <span class="pill">Instant dismissal</span>
+      </div>
     </div>
     <div class="feat-img-wrap">
-      <img src = "BriefingPage.png" alt = "PranshulOS  Briefing page"
+      <img src="BriefingPage.png" alt="PranshulOS Daily Briefing"
            onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
-  </div>
-  </div>
- <br></br>
-  <div>
-    <div class="feature-row " data-reveal>
-    <div class="feat-copy">
-      <span class="feat-tag">Blueprint</span>
-      <h2>Map out how things work.</h2>
-      <p>
-        Create visual blueprints for workflows, processes, and ideas. Connect steps, add context, branch decisions, and work through them as you go.
-      </p>
+      <div class="feat-mock" style="display:none;">
+        <div class="mock-bar">
+          <div class="mock-dot" style="background:#ff5f56"></div>
+          <div class="mock-dot" style="background:#ffbd2e"></div>
+          <div class="mock-dot" style="background:#27c93f"></div>
+          <span class="mock-title">DAILY BRIEFING DIGEST</span>
+        </div>
+        <div class="mock-body">
+          <div style="font-size:1.1rem;color:#c89b3c;font-weight:300;margin-bottom:12px;">Good morning, Commander.</div>
+          <div style="font-size:.75rem;color:#888;line-height:1.6;">You have 2 goals active, 3 routine blocks scheduled, and 1 high-priority ticket due today.</div>
+        </div>
+      </div>
     </div>
-  <div class="feat-img-wrap">
-    <img src = "Workflow.png" alt = "PranshulOS Worfklow"
-         onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
   </div>
-  </div>
- <br></br>
-</section>
 
+  <!-- 7. BLUEPRINTS & WORKFLOWS -->
+  <div class="feature-row" data-reveal>
+    <div class="feat-copy">
+      <span class="feat-tag">BLUEPRINTS</span>
+      <h2>Visual workflow builder<br>with live execution.</h2>
+      <p>
+        Design complex multi-step processes on an infinite graph canvas. Add directional labeled branches, auto-frame node bounding boxes, and launch interactive run sessions with real-time checkbox tracking.
+      </p>
+      <div class="feat-pills">
+        <span class="pill">Infinite pan &amp; zoom canvas</span>
+        <span class="pill">Directional SVG connectors</span>
+        <span class="pill">Interactive runner mode</span>
+        <span class="pill">Auto-fit view</span>
+      </div>
+    </div>
+    <div class="feat-img-wrap">
+      <img src="Workflow.png" alt="PranshulOS Blueprints and Workflows"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+      <div class="feat-mock" style="display:none;">
+        <div class="mock-bar">
+          <div class="mock-dot" style="background:#ff5f56"></div>
+          <div class="mock-dot" style="background:#ffbd2e"></div>
+          <div class="mock-dot" style="background:#27c93f"></div>
+          <span class="mock-title">BLUEPRINTS — WORKFLOW ENGINE</span>
+        </div>
+        <div class="mock-body" style="background:radial-gradient(circle at 1px 1px, #2a2a2a 1px, transparent 0) 0 0 / 18px 18px #0d0d0d;min-height:140px;display:flex;align-items:center;justify-content:center;gap:20px;">
+          <div style="background:#161616;border:1px solid #c89b3c;border-radius:6px;padding:8px 12px;font-size:.7rem;color:#c89b3c;">Frontend Layer</div>
+          <div style="color:#c89b3c;font-size:.8rem;">→</div>
+          <div style="background:#161616;border:1px solid #2a2a2a;border-radius:6px;padding:8px 12px;font-size:.7rem;color:#e8e8e8;">API Gateway</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. THEME STUDIO & GOOGLE FONTS -->
+  <div class="feature-row reverse" data-reveal>
+    <div class="feat-copy">
+      <span class="feat-tag">THEME STUDIO</span>
+      <h2>Infinite styles,<br>Google Fonts integration.</h2>
+      <p>
+        Make the OS truly yours. Switch between curated presets (Classic Amber, Pixel Arcade, Paper Craft, Cyber Neon), import any custom font from the Google Fonts API, adjust RGB color tokens, and toggle atmospheric scanlines.
+      </p>
+      <div class="feat-pills">
+        <span class="pill">Google Fonts live loader</span>
+        <span class="pill">4 Built-in presets</span>
+        <span class="pill">CRT scanlines &amp; grain</span>
+        <span class="pill">JSON export &amp; import</span>
+      </div>
+    </div>
+    <div class="feat-img-wrap">
+      <img src="Themes.jpg" alt="PranshulOS Theme Studio"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+      <div class="feat-mock" style="display:none;">
+        <div class="mock-bar">
+          <div class="mock-dot" style="background:#ff5f56"></div>
+          <div class="mock-dot" style="background:#ffbd2e"></div>
+          <div class="mock-dot" style="background:#27c93f"></div>
+          <span class="mock-title">THEME STUDIO &amp; ENGINE</span>
+        </div>
+        <div class="mock-body">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;">
+            <div style="background:#1e1e1e;border:1px solid #c89b3c;border-radius:6px;padding:10px;font-size:.7rem;color:#c89b3c;">✦ Classic Amber</div>
+            <div style="background:#1e1e1e;border:1px solid #2a2a2a;border-radius:6px;padding:10px;font-size:.7rem;color:#00ffcc;">👾 Cyber Neon</div>
+          </div>
+          <div style="font-size:.68rem;color:#888;font-family:'Courier New',monospace;">Custom Font: Inter, Orbitron, Fira Code, Outfit...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 9. CHIBI COMPANION MASCOT -->
+  <div class="feature-row" data-reveal>
+    <div class="feat-copy">
+      <span class="feat-tag">CHIBI COMPANION</span>
+      <h2>Your autonomous<br>desktop mascot.</h2>
+      <p>
+        A reactive anime companion who lives in your workspace. Chibi reacts to your milestones, celebrates finished tasks with confetti particles, offers contextual encouragement, and changes moods based on your focus state.
+      </p>
+      <div class="feat-pills">
+        <span class="pill">Reactive state engine</span>
+        <span class="pill">Particle celebration physics</span>
+        <span class="pill">Contextual speech bubbles</span>
+        <span class="pill">Companion Hub Drawer</span>
+      </div>
+    </div>
+    <div class="feat-img-wrap">
+      <img src="Chibi.jpg" alt="PranshulOS Chibi Companion"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+      <div class="feat-mock" style="display:none;">
+        <div class="mock-bar">
+          <div class="mock-dot" style="background:#ff5f56"></div>
+          <div class="mock-dot" style="background:#ffbd2e"></div>
+          <div class="mock-dot" style="background:#27c93f"></div>
+          <span class="mock-title">CHIBI COMPANION MASCOT</span>
+        </div>
+        <div class="mock-body" style="display:flex;align-items:center;gap:16px;">
+          <div style="background:#1e1e1e;border:1px solid #c89b3c;border-radius:8px;padding:12px;font-size:.72rem;color:#c89b3c;flex:1;">
+            "You just crushed that blueprint task! Time for a coffee break? ✨"
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
 
 <!-- ══════════════ FINAL CTA ══════════════ -->
 <section class="final-cta" data-reveal>
-  <h2>Ready to flow?</h2>
-  <p>Download PranshulOS and install in under 30 seconds. No account. No cloud. Just yours.</p>
+  <h2>Ready to elevate your workflow?</h2>
+  <p>Install PranshulOS in seconds. Zero cloud subscriptions. Zero tracking. Pure focus.</p>
   <a class="btn btn-gold btn-hero" href="YOUR_SETUP_EXE_URL" download="PranshulOS-setup.exe">
-    ↓ Download PranshulOS — Free
+    ↓ Download PranshulOS v2.3 — Free
   </a>
-  <div style="margin-top:20px;font-family:'Courier New',monospace;font-size:.72rem;color:var(--muted);">
-    v2.2 · Windows · Local-first
+  <div style="margin-top:20px;font-family:'Courier New',monospace;font-size:.75rem;color:var(--muted);">
+    v2.3 · Windows 10/11 · Local-first SQLite
   </div>
 </section>
 
 <!-- ══════════════ FOOTER ══════════════ -->
 <footer>
-  <div class="footer-brand">PranshulOS</div>
+  <div class="footer-brand">PranshulOS · v2.3 stable</div>
   <div class="footer-right">
-    <a href="YOUR_GOOGLE_FORM_URL" target="_blank" style="color:var(--gold-dim);margin-right:20px;">Send Feedback</a>
-    <a href="YOUR_SETUP_EXE_URL" download="PranshulOS-setup.exe" style="color:var(--gold-dim);">Download v2.3</a>
+    <a href="YOUR_GOOGLE_FORM_URL" target="_blank" rel="noopener" style="color:var(--gold-dim);margin-right:20px;">Send Feedback</a>
+    <a href="YOUR_SETUP_EXE_URL" download="PranshulOS-setup.exe" style="color:var(--gold-dim);">Download .exe</a>
   </div>
 </footer>
 
-<!-- ══════════════ CHIBI MASCOT DIALOG ══════════════ -->
-<style>
-  /* ── Overlay ── */
-  #chibi-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    background: rgba(0,0,0,0);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background .35s ease;
-    pointer-events: none;
-  }
-  #chibi-overlay.active {
-    background: rgba(0,0,0,.72);
-    pointer-events: all;
-    backdrop-filter: blur(4px);
-  }
-
-  /* ── Floating warning signs ── */
-  .warn-sign {
-    position: fixed;
-    font-size: 2.2rem;
-    opacity: 0;
-    pointer-events: none;
-    z-index: 9998;
-    filter: drop-shadow(0 0 8px #c89b3c88);
-    animation: warnPop .5s ease forwards;
-  }
-  @keyframes warnPop {
-    0%   { opacity: 0; transform: scale(0.3) rotate(-15deg); }
-    60%  { opacity: 1; transform: scale(1.15) rotate(6deg); }
-    80%  { transform: scale(0.95) rotate(-3deg); }
-    100% { opacity: 1; transform: scale(1) rotate(0deg); }
-  }
-  .warn-sign.fade-out {
-    animation: warnFade .4s ease forwards;
-  }
-  @keyframes warnFade {
-    to { opacity: 0; transform: scale(0.5); }
-  }
-
-  /* ── Dialog box ── */
-  #chibi-dialog {
-    background: #161616;
-    border: 1px solid #2a2a2a;
-    border-radius: 14px;
-    box-shadow: 0 0 0 1px rgba(200,155,60,.15), 0 32px 80px rgba(0,0,0,.7);
-    max-width: 640px;
-    width: calc(100% - 40px);
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 0;
-    overflow: hidden;
-    opacity: 0;
-    transform: scale(0.88) translateY(24px);
-    transition: opacity .35s .15s ease, transform .35s .15s cubic-bezier(.17,.84,.44,1);
-  }
-  #chibi-overlay.active #chibi-dialog {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-
-  /* Left content */
-  .chibi-content {
-    padding: 32px 28px 28px 32px;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-  }
-
-  /* Header bar */
-  .chibi-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .chibi-log-tag {
-    font-family: 'Courier New', monospace;
-    font-size: .66rem;
-    letter-spacing: .14em;
-    color: var(--gold);
-    background: rgba(200,155,60,.1);
-    border: 1px solid rgba(200,155,60,.25);
-    border-radius: 4px;
-    padding: 3px 9px;
-    text-transform: uppercase;
-  }
-  .chibi-warn-badge {
-    font-size: .7rem;
-    color: #ff9800;
-    background: rgba(255,152,0,.1);
-    border: 1px solid rgba(255,152,0,.2);
-    border-radius: 4px;
-    padding: 3px 8px;
-    font-family: 'Courier New', monospace;
-    letter-spacing: .06em;
-  }
-
-  /* Body text */
-  .chibi-body h3 {
-    font-size: 1rem;
-    font-weight: 700;
-    color: #e8e8e8;
-    margin-bottom: 10px;
-    line-height: 1.35;
-  }
-  .chibi-body h3 em {
-    font-style: normal;
-    color: var(--gold);
-  }
-  .chibi-body p {
-    font-size: .83rem;
-    color: #888;
-    line-height: 1.65;
-  }
-  .chibi-body p strong {
-    color: #bbb;
-  }
-
-  /* Status line */
-  .chibi-status {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-family: 'Courier New', monospace;
-    font-size: .67rem;
-    color: #888;
-    padding-top: 8px;
-    border-top: 1px solid #222;
-  }
-  .chibi-status-dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: #ff9800;
-    box-shadow: 0 0 6px #ff980088;
-    flex-shrink: 0;
-    animation: pulse-warn 1.4s ease-in-out infinite;
-  }
-  @keyframes pulse-warn {
-    0%, 100% { opacity: 1; }
-    50%       { opacity: .3; }
-  }
-
-  /* Close button */
-  .chibi-footer {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 4px;
-  }
-  #chibi-close {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 9px 20px;
-    border-radius: 6px;
-    font-size: .78rem;
-    font-weight: 600;
-    letter-spacing: .04em;
-    cursor: pointer;
-    border: 1px solid #2a2a2a;
-    background: transparent;
-    color: #888;
-    transition: all .18s;
-  }
-  #chibi-close:hover {
-    border-color: var(--gold-dim);
-    color: var(--gold);
-  }
-  .chibi-close-hint {
-    font-size: .65rem;
-    color: #444;
-    font-family: 'Courier New', monospace;
-  }
-
-  /* Right — mascot panel */
-  .chibi-mascot-panel {
-    background: #111;
-    border-left: 1px solid #222;
-    width: 180px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    padding: 20px 16px 0;
-    position: relative;
-    overflow: hidden;
-  }
-  .chibi-mascot-panel::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 50% 30%, rgba(200,155,60,.07) 0%, transparent 70%);
-  }
-  .chibi-mascot-img {
-    width: 140px;
-    height: auto;
-    display: block;
-    position: relative;
-    z-index: 1;
-    animation: chibiBob 3s ease-in-out infinite;
-    transform-origin: bottom center;
-    border-radius: 0;
-  }
-  @keyframes chibiBob {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    25%       { transform: translateY(-5px) rotate(-1deg); }
-    75%       { transform: translateY(-3px) rotate(1deg); }
-  }
-  .chibi-name-tag {
-    font-family: 'Courier New', monospace;
-    font-size: .6rem;
-    letter-spacing: .1em;
-    color: var(--gold-dim);
-    text-transform: uppercase;
-    margin-bottom: 14px;
-    position: relative;
-    z-index: 1;
-    opacity: .7;
-  }
-</style>
-
-<!-- Warning signs (injected by JS) -->
-<div id="chibi-overlay">
-  <div id="chibi-dialog" role="dialog" aria-modal="true" aria-label="Intruder Alert">
-
-    <!-- Left: content -->
-    <div class="chibi-content">
-      <div class="chibi-header">
-        <span class="chibi-warn-badge">⚠ ALERT</span>
-        <span class="chibi-log-tag">Production Log #024</span>
-      </div>
-
-      <div class="chibi-body">
-        <h3>Chibi has broken <em>free...</em>.</h3>
-        <p>
-          chibi has officially broken into the app
-          and now just sits there watching the user<br><br>
-          He refuses to leave.<br><br>
-          God knows what he does next.
-        </p>
-      </div>
-
-      <div class="chibi-status">
-        <span class="chibi-status-dot"></span>
-        STATUS: CONTAINMENT FAILED · ENTITY ACTIVE · WEARING A #13 HOODIE
-      </div>
-
-      <div class="chibi-footer">
-        <button id="chibi-close">✕ Acknowledge &amp; Dismiss</button>
-        <span class="chibi-close-hint">[ esc ]</span>
-      </div>
-    </div>
-
-    <!-- Right: mascot -->
-    <div class="chibi-mascot-panel">
-      <img
-        class="chibi-mascot-img"
-        src="chibi.png"
-        alt="Chibi mascot"
-        id="chibi-img"
-      />
-      <div class="chibi-name-tag">entity: chibi</div>
-    </div>
-
-  </div>
-</div>
-
-<!-- ══════════════ SCROLL REVEAL ══════════════ -->
+<!-- ══════════════ SCROLL REVEAL & CONFIG LOGIC ══════════════ -->
 <script>
-  /* ── CONFIG: swap these two values to update version/urls ── */
   const CONFIG = {
     version:     "v2.3.0",
-    downloadUrl: "https://github.com/Pranshul-Chopra/PranshulOS-/releases/download/v2.3.0/PranshulOS.Setup.2.3.0.exe",       // ← paste direct .exe link
-    feedbackUrl: "https://docs.google.com/forms/d/e/1FAIpQLSe8jN6FEH7zdEMFxweuku_0mdwlKUcYE1RTB00NjPMOPY0Xew/viewform?usp=publish-editor",     // ← paste Google Form URL
+    downloadUrl: "https://github.com/Pranshul-Chopra/PranshulOS-/releases/download/v2.3.0/PranshulOS.Setup.2.3.0.exe",
+    feedbackUrl: "https://docs.google.com/forms/d/e/1FAIpQLSe8jN6FEH7zdEMFxweuku_0mdwlKUcYE1RTB00NjPMOPY0Xew/viewform?usp=publish-editor"
   };
 
-  /* Apply config to all download/feedback links */
+  /* Bind config URLs to action buttons */
   document.querySelectorAll('[href="YOUR_SETUP_EXE_URL"]').forEach(el => {
     el.href = CONFIG.downloadUrl;
   });
@@ -982,7 +812,7 @@ One offline workspace.
     el.href = CONFIG.feedbackUrl;
   });
 
-  /* Scroll reveal */
+  /* Smooth Intersection Scroll Reveal */
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -994,87 +824,6 @@ One offline workspace.
 
   document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
 </script>
-<!-- ══════════════ CHIBI MASCOT LOGIC ══════════════ -->
-<script>
-(function () {
-  /* ── Config ── */
-  const WARN_POSITIONS = [
-    { top: '8%',  left: '4%'  },
-    { top: '12%', right: '5%' },
-    { top: '55%', left: '2%'  },
-    { top: '60%', right: '3%' },
-    { top: '30%', left: '7%'  },
-    { top: '35%', right: '7%' },
-    { top: '80%', left: '5%'  },
-    { top: '82%', right: '6%' },
-  ];
-  const WARN_DELAYS = [0, 80, 160, 240, 320, 400, 480, 560]; // staggered ms
 
-  const overlay  = document.getElementById('chibi-overlay');
-  const closeBtn = document.getElementById('chibi-close');
-  const warnEls  = [];
-
-  /* ── Spawn warning signs ── */
-  function spawnWarnings() {
-    WARN_POSITIONS.forEach((pos, i) => {
-      setTimeout(() => {
-        const el = document.createElement('div');
-        el.className = 'warn-sign';
-        el.textContent = '⚠️';
-        Object.assign(el.style, pos);
-        document.body.appendChild(el);
-        warnEls.push(el);
-      }, WARN_DELAYS[i]);
-    });
-  }
-
-  /* ── Remove warning signs ── */
-  function removeWarnings() {
-    warnEls.forEach((el, i) => {
-      setTimeout(() => {
-        el.classList.add('fade-out');
-        setTimeout(() => el.remove(), 450);
-      }, i * 40);
-    });
-    warnEls.length = 0;
-  }
-
-  /* ── Open dialog ── */
-  function openDialog() {
-    spawnWarnings();
-    // slight delay so warnings pop first, then dialog slides in
-    setTimeout(() => {
-      overlay.classList.add('active');
-    }, 200);
-    document.body.style.overflow = 'hidden';
-  }
-
-  /* ── Close dialog ── */
-  function closeDialog() {
-    overlay.classList.remove('active');
-    removeWarnings();
-    document.body.style.overflow = '';
-    // remember dismissal for this session
-    sessionStorage.setItem('chibi_dismissed', '1');
-  }
-
-  /* ── Wire up events ── */
-  closeBtn.addEventListener('click', closeDialog);
-  overlay.addEventListener('click', (e) => {
-    if (e.target === overlay) closeDialog();
-  });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && overlay.classList.contains('active')) closeDialog();
-  });
-
-  /* ── Auto-open on first visit (session-scoped) ── */
-  if (!sessionStorage.getItem('chibi_dismissed')) {
-    // wait for page to settle, then show
-    window.addEventListener('load', () => {
-      setTimeout(openDialog, 900);
-    });
-  }
-})();
-</script>
 </body>
 </html>
