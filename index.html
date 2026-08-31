@@ -131,7 +131,7 @@
       font-size: clamp(2.3rem, 5.2vw, 4.2rem);
       font-weight: 700;
       line-height: 1.15;
-      max-width: 860px;
+      max-width: 900px;
       letter-spacing: -.02em;
       opacity: 0;
       animation: fadeUp .7s .25s forwards;
@@ -144,7 +144,7 @@
       margin-top: 22px;
       font-size: 1.1rem;
       color: var(--muted);
-      max-width: 580px;
+      max-width: 620px;
       opacity: 0;
       animation: fadeUp .7s .4s forwards;
     }
@@ -240,7 +240,7 @@
       color: var(--muted);
       font-size: .96rem;
       line-height: 1.75;
-      max-width: 440px;
+      max-width: 460px;
     }
     .feat-pills {
       display: flex;
@@ -389,8 +389,8 @@
 <!-- ══════════════ HERO ══════════════ -->
 <section class="hero">
   <p class="hero-eyebrow">Personal Productivity OS · v2.3 stable</p>
-  <h1>Your entire workflow.<br>Notes. Tasks. Blueprints. Tickets.<br><em>One offline workspace.</em></h1>
-  <p class="hero-sub">A dark, fluid command center for your thoughts, routines, and workflows — completely local-first, customizable, and companion-powered.</p>
+  <h1>Your entire workflow.<br>AI Plan Mode. Notes. Blueprints.<br><em>One offline workspace.</em></h1>
+  <p class="hero-sub">A dark, fluid command center for your thoughts, routines, and workflows — local-first SQLite, AI companion with 1-click execution, and deep customization.</p>
   <div class="hero-cta">
     <a class="btn btn-gold btn-hero" href="YOUR_SETUP_EXE_URL" download="PranshulOS-setup.exe">
       ↓ Download Now — Free
@@ -409,57 +409,109 @@
 <section class="features" id="features">
   <p class="section-label">WHAT'S INSIDE</p>
 
-  <!-- 1. HOME — Quick Launch -->
+  <!-- 1. CHIBI AI & PLAN MODE (NEW) -->
   <div class="feature-row" data-reveal>
     <div class="feat-copy">
-      <span class="feat-tag">HOME</span>
-      <h2>Your launchpad,<br>ready when you are.</h2>
+      <span class="feat-tag">AI PLAN MODE · CHIBI</span>
+      <h2>Collaborative planning<br>with 1-click execution.</h2>
       <p>
-        Personalized daily greeting, single-click launchers for your favorite URLs, and natural-language command triggers. Glance at your routines, agenda, and habit health instantly without app context-switching.
+        Structure your routines, tickets, tasks, goals, and notes naturally through conversation. Chibi compiles structured Action Plan Cards with one-click <strong>✓ Apply to PranshulOS</strong> execution. Backed by multi-domain advisory standards (Engineering, Product Management, Academics, Healthcare, and Finance) and dual local Ollama / cloud Gemini support.
       </p>
       <div class="feat-pills">
-        <span class="pill">Quick Launch tiles</span>
-        <span class="pill">Natural language input</span>
-        <span class="pill">Today's routine snapshot</span>
-        <span class="pill">Habit streak health</span>
+        <span class="pill">⚡ Plan Mode Action Cards</span>
+        <span class="pill">1-Click SQLite Apply</span>
+        <span class="pill">Offline Ollama + Cloud Gemini</span>
+        <span class="pill">8-Domain Advisory Intelligence</span>
+        <span class="pill">Global shortcut (Ctrl + J)</span>
       </div>
     </div>
     <div class="feat-img-wrap">
-      <img src="home.jpg" alt="PranshulOS Home Launchpad"
+      <img src="image.png" alt="Chibi Plan Mode & Action Cards"
            onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
       <div class="feat-mock" style="display:none;">
         <div class="mock-bar">
           <div class="mock-dot" style="background:#ff5f56"></div>
           <div class="mock-dot" style="background:#ffbd2e"></div>
           <div class="mock-dot" style="background:#27c93f"></div>
-          <span class="mock-title">HOME — LAUNCHPAD</span>
+          <span class="mock-title">CHIBI AI — PLAN MODE</span>
         </div>
         <div class="mock-body">
-          <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px;margin-bottom:16px;">
-            <div style="background:#1e1e1e;border:1px solid #2a2a2a;border-radius:8px;padding:20px 12px;text-align:center;font-size:.7rem;color:#c89b3c;">▶ YouTube</div>
-            <div style="background:#1e1e1e;border:1px solid #2a2a2a;border-radius:8px;padding:20px 12px;text-align:center;font-size:.7rem;color:#c89b3c;">♪ Spotify</div>
-            <div style="background:#1e1e1e;border:1px solid #2a2a2a;border-radius:8px;padding:20px 12px;text-align:center;font-size:.7rem;color:#c89b3c;">● WhatsApp</div>
-            <div style="background:#1e1e1e;border:1px solid #2a2a2a;border-radius:8px;padding:20px 12px;text-align:center;font-size:.7rem;color:#c89b3c;">✦ Discord</div>
+          <div style="background:#1e1e1e;border-left:3px solid #c89b3c;border-radius:6px;padding:12px;margin-bottom:12px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+              <span style="font-size:.65rem;color:#c89b3c;font-family:'Courier New',monospace;font-weight:700;">[DAILY HABIT]</span>
+              <span style="font-size:.6rem;color:#888;">07:30 – 08:30</span>
+            </div>
+            <div style="font-size:.76rem;color:#e8e8e8;font-weight:600;margin-bottom:8px;">Deep Work: System Architecture</div>
+            <button style="background:#c89b3c;color:#0d0d0d;border:none;border-radius:4px;padding:4px 10px;font-size:.68rem;font-weight:700;cursor:pointer;">✓ Apply to PranshulOS</button>
           </div>
-          <div style="background:#161616;border:1px solid #2a2a2a;border-radius:8px;padding:12px 16px;font-family:'Courier New',monospace;font-size:.72rem;color:#6b6b6b;">try "github", "spotify", "docs"...</div>
+          <div style="font-size:.7rem;color:#888;font-family:'Courier New',monospace;">"Applied to daily routine! Would you like me to schedule review blocks?"</div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- 2. DASHBOARD — Task & Goal Manager -->
+  <!-- 2. DOCS & MARKDOWN STUDIO (UPDATED) -->
   <div class="feature-row reverse" data-reveal>
     <div class="feat-copy">
-      <span class="feat-tag">DASHBOARD</span>
-      <h2>Tasks with time slots,<br>not just to-dos.</h2>
+      <span class="feat-tag">DOCS · MARKDOWN STUDIO</span>
+      <h2>Rich Markdown editor<br>with Write, Split &amp; Preview.</h2>
       <p>
-        Schedule today's tasks with precise time slots, automatically roll over unfinished work with stack preservation, and manage high-level quarterly goals alongside your daily calendar.
+        A powerhouse text editor with three flexible view modes: distraction-free writing, live side-by-side split editing, and rendered preview. Complete with a rich formatting toolbar, interactive checklists that sync directly with markdown source, copyable code blocks, document pinning, and partial AI patch editing.
+      </p>
+      <div class="feat-pills">
+        <span class="pill">✏️ Write / ⚡ Split / 👁️ Preview</span>
+        <span class="pill">Interactive task checklists</span>
+        <span class="pill">Markdown formatting toolbar</span>
+        <span class="pill">1-Click code snippet copy</span>
+        <span class="pill">DOCX &amp; TXT exports</span>
+      </div>
+    </div>
+    <div class="feat-img-wrap">
+      <img src="docs.jpg" alt="PranshulOS Markdown Docs Editor"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+      <div class="feat-mock" style="display:none;">
+        <div class="mock-bar">
+          <div class="mock-dot" style="background:#ff5f56"></div>
+          <div class="mock-dot" style="background:#ffbd2e"></div>
+          <div class="mock-dot" style="background:#27c93f"></div>
+          <span class="mock-title">DOCS — MARKDOWN STUDIO</span>
+        </div>
+        <div class="mock-body">
+          <div style="display:flex;gap:6px;margin-bottom:12px;border-bottom:1px solid #2a2a2a;padding-bottom:8px;">
+            <span style="background:#1e1e1e;border:1px solid #c89b3c;color:#c89b3c;padding:2px 8px;border-radius:4px;font-size:.65rem;">⚡ Split View</span>
+            <span style="color:#888;padding:2px 6px;font-size:.65rem;"><b>B</b></span>
+            <span style="color:#888;padding:2px 6px;font-size:.65rem;"><i>I</i></span>
+            <span style="color:#888;padding:2px 6px;font-size:.65rem;">H1</span>
+            <span style="color:#888;padding:2px 6px;font-size:.65rem;">☑ Checklist</span>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+            <div style="background:#161616;border:1px solid #2a2a2a;border-radius:6px;padding:10px;font-family:'Courier New',monospace;font-size:.62rem;color:#c89b3c;">
+              ## Roadmap<br>- [x] Architecture Spec<br>- [ ] Deploy v2.3
+            </div>
+            <div style="background:#161616;border:1px solid #2a2a2a;border-radius:6px;padding:10px;font-size:.68rem;">
+              <div style="font-weight:700;margin-bottom:4px;">Roadmap</div>
+              <div style="color:#4caf50;">☑ Architecture Spec</div>
+              <div style="color:#e8e8e8;">☐ Deploy v2.3</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. DASHBOARD — Agenda, Calendar & Goals -->
+  <div class="feature-row" data-reveal>
+    <div class="feat-copy">
+      <span class="feat-tag">DASHBOARD</span>
+      <h2>Time-blocked agenda,<br>calendar &amp; quarterly goals.</h2>
+      <p>
+        Schedule today's tasks with start/end time slots, automatically roll over unfinished tasks with stack preservation, and inspect your full month's calendar agenda. Chibi maintains real-time context of all upcoming deliverables.
       </p>
       <div class="feat-pills">
         <span class="pill">Time-slot scheduling (HH:MM)</span>
+        <span class="pill">Interactive monthly calendar</span>
         <span class="pill">Stacked rollover items</span>
-        <span class="pill">Interactive calendar</span>
-        <span class="pill">Main goals progress</span>
+        <span class="pill">Quarterly goal milestones</span>
       </div>
     </div>
     <div class="feat-img-wrap">
@@ -470,12 +522,12 @@
           <div class="mock-dot" style="background:#ff5f56"></div>
           <div class="mock-dot" style="background:#ffbd2e"></div>
           <div class="mock-dot" style="background:#27c93f"></div>
-          <span class="mock-title">DASHBOARD — AGENDA &amp; GOALS</span>
+          <span class="mock-title">DASHBOARD — AGENDA &amp; CALENDAR</span>
         </div>
         <div class="mock-body">
           <div style="display:flex;gap:12px;margin-bottom:12px;">
             <span style="font-size:.72rem;color:#c89b3c;border-bottom:1px solid #c89b3c;padding-bottom:4px;">TODAY</span>
-            <span style="font-size:.72rem;color:#6b6b6b;">SELECTED DAY</span>
+            <span style="font-size:.72rem;color:#6b6b6b;">SEP 2026 CALENDAR</span>
           </div>
           <div style="background:#161616;border:1px solid #2a2a2a;border-radius:6px;padding:12px;margin-bottom:10px;font-size:.72rem;color:#e8e8e8;font-family:'Courier New',monospace;">11:00 – 12:30 · System Architecture Refactor</div>
           <div style="font-size:.65rem;color:#c89b3c;font-family:'Courier New',monospace;text-transform:uppercase;margin-bottom:6px;">Stacked from previous days</div>
@@ -485,61 +537,53 @@
     </div>
   </div>
 
-  <!-- 3. DOCS & PINNING -->
-  <div class="feature-row" data-reveal>
+  <!-- 4. BLUEPRINTS & WORKFLOWS -->
+  <div class="feature-row reverse" data-reveal>
     <div class="feat-copy">
-      <span class="feat-tag">DOCS</span>
-      <h2>Notes, docs, and ideas—<br>searchable in seconds.</h2>
+      <span class="feat-tag">BLUEPRINTS · WORKFLOW ENGINE</span>
+      <h2>Visual node-graph builder<br>with live step execution.</h2>
       <p>
-        Distraction-free plain-text note writing with instant search. Pin your most critical reference sheets to the top, organize documents in card grids, and export cleanly to DOCX or plain TXT formats.
+        Design multi-stage workflows on an infinite canvas with directional SVG connections. Run interactive step-by-step sessions with isolated checkbox state tracking and auto-fit camera zooming, accessible right from the sidebar.
       </p>
       <div class="feat-pills">
-        <span class="pill">Document pinning</span>
-        <span class="pill">Instant full-text filter</span>
-        <span class="pill">DOCX / TXT exports</span>
-        <span class="pill">Local SQLite storage</span>
+        <span class="pill">Infinite pan &amp; zoom canvas</span>
+        <span class="pill">Directional SVG connectors</span>
+        <span class="pill">Interactive runner mode</span>
+        <span class="pill">Sidebar shortcut &amp; /blueprints</span>
       </div>
     </div>
     <div class="feat-img-wrap">
-      <img src="docs.jpg" alt="PranshulOS Docs"
+      <img src="Workflow.png" alt="PranshulOS Blueprints and Workflows"
            onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
       <div class="feat-mock" style="display:none;">
         <div class="mock-bar">
           <div class="mock-dot" style="background:#ff5f56"></div>
           <div class="mock-dot" style="background:#ffbd2e"></div>
           <div class="mock-dot" style="background:#27c93f"></div>
-          <span class="mock-title">DOCS &amp; NOTES</span>
+          <span class="mock-title">BLUEPRINTS — WORKFLOW ENGINE</span>
         </div>
-        <div class="mock-body">
-          <div style="background:#161616;border:1px solid #2a2a2a;border-radius:6px;padding:10px 14px;font-size:.72rem;color:#6b6b6b;margin-bottom:16px;font-family:'Courier New',monospace;">search documents...</div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
-            <div style="background:#161616;border:1px solid #c89b3c44;border-radius:8px;padding:14px;font-size:.72rem;">
-              <div style="color:#c89b3c;font-weight:600;margin-bottom:4px;">📌 CORE ARCHITECTURE</div>
-              <div style="color:#6b6b6b;font-size:.65rem;">System specification and local SQLite storage...</div>
-            </div>
-            <div style="background:#161616;border:1px solid #2a2a2a;border-radius:8px;padding:14px;font-size:.72rem;">
-              <div style="color:#e8e8e8;font-weight:600;margin-bottom:4px;">SECURITY HANDBOOK</div>
-              <div style="color:#6b6b6b;font-size:.65rem;">Incident logs, origin controls, and CSP audit...</div>
-            </div>
-          </div>
+        <div class="mock-body" style="background:radial-gradient(circle at 1px 1px, #2a2a2a 1px, transparent 0) 0 0 / 18px 18px #0d0d0d;min-height:140px;display:flex;align-items:center;justify-content:center;gap:20px;">
+          <div style="background:#161616;border:1px solid #c89b3c;border-radius:6px;padding:8px 12px;font-size:.7rem;color:#c89b3c;">Frontend Layer</div>
+          <div style="color:#c89b3c;font-size:.8rem;">→</div>
+          <div style="background:#161616;border:1px solid #2a2a2a;border-radius:6px;padding:8px 12px;font-size:.7rem;color:#e8e8e8;">API Gateway</div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- 4. WEEKLY PLANNER -->
-  <div class="feature-row reverse" data-reveal>
+  <!-- 5. ROUTINE & WEEKLY HABITS -->
+  <div class="feature-row" data-reveal>
     <div class="feat-copy">
-      <span class="feat-tag">ROUTINE · WEEKLY</span>
-      <h2>Plan the whole week,<br>once and for all.</h2>
+      <span class="feat-tag">ROUTINE · DAILY &amp; WEEKLY</span>
+      <h2>Separate daily habits<br>from weekly commitments.</h2>
       <p>
-        Set recurring daily routine blocks with start and end times. PranshulOS automatically syncs your routine into today's Dashboard schedule, highlighting the active day column dynamically.
+        Maintain essential daily recurring habits alongside a comprehensive 7-day Monday–Sunday column schedule. Active day highlighting ensures you always know your exact commitments.
       </p>
       <div class="feat-pills">
-        <span class="pill">7-day column planner</span>
+        <span class="pill">Daily recurring habits</span>
+        <span class="pill">7-Day Monday–Sunday matrix</span>
         <span class="pill">Active day highlight</span>
-        <span class="pill">Auto-inject to agenda</span>
-        <span class="pill">Habit persistence</span>
+        <span class="pill">Streak calculation engine</span>
       </div>
     </div>
     <div class="feat-img-wrap">
@@ -588,8 +632,8 @@
     </div>
   </div>
 
-  <!-- 5. TICKETS -->
-  <div class="feature-row" data-reveal>
+  <!-- 6. TICKETS -->
+  <div class="feature-row reverse" data-reveal>
     <div class="feat-copy">
       <span class="feat-tag">TICKETS</span>
       <h2>A personal ticket board<br>for real work.</h2>
@@ -636,8 +680,8 @@
     </div>
   </div>
 
-  <!-- 6. DAILY BRIEFING -->
-  <div class="feature-row reverse" data-reveal>
+  <!-- 7. DAILY BRIEFING -->
+  <div class="feature-row" data-reveal>
     <div class="feat-copy">
       <span class="feat-tag">DAILY BRIEFING</span>
       <h2>A personal briefing letter<br>for your morning coffee.</h2>
@@ -669,52 +713,18 @@
     </div>
   </div>
 
-  <!-- 7. BLUEPRINTS & WORKFLOWS -->
-  <div class="feature-row" data-reveal>
-    <div class="feat-copy">
-      <span class="feat-tag">BLUEPRINTS</span>
-      <h2>Visual workflow builder<br>with live execution.</h2>
-      <p>
-        Design complex multi-step processes on an infinite graph canvas. Add directional labeled branches, auto-frame node bounding boxes, and launch interactive run sessions with real-time checkbox tracking.
-      </p>
-      <div class="feat-pills">
-        <span class="pill">Infinite pan &amp; zoom canvas</span>
-        <span class="pill">Directional SVG connectors</span>
-        <span class="pill">Interactive runner mode</span>
-        <span class="pill">Auto-fit view</span>
-      </div>
-    </div>
-    <div class="feat-img-wrap">
-      <img src="Workflow.png" alt="PranshulOS Blueprints and Workflows"
-           onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
-      <div class="feat-mock" style="display:none;">
-        <div class="mock-bar">
-          <div class="mock-dot" style="background:#ff5f56"></div>
-          <div class="mock-dot" style="background:#ffbd2e"></div>
-          <div class="mock-dot" style="background:#27c93f"></div>
-          <span class="mock-title">BLUEPRINTS — WORKFLOW ENGINE</span>
-        </div>
-        <div class="mock-body" style="background:radial-gradient(circle at 1px 1px, #2a2a2a 1px, transparent 0) 0 0 / 18px 18px #0d0d0d;min-height:140px;display:flex;align-items:center;justify-content:center;gap:20px;">
-          <div style="background:#161616;border:1px solid #c89b3c;border-radius:6px;padding:8px 12px;font-size:.7rem;color:#c89b3c;">Frontend Layer</div>
-          <div style="color:#c89b3c;font-size:.8rem;">→</div>
-          <div style="background:#161616;border:1px solid #2a2a2a;border-radius:6px;padding:8px 12px;font-size:.7rem;color:#e8e8e8;">API Gateway</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- 8. THEME STUDIO & GOOGLE FONTS -->
   <div class="feature-row reverse" data-reveal>
     <div class="feat-copy">
       <span class="feat-tag">THEME STUDIO</span>
       <h2>Infinite styles,<br>Google Fonts integration.</h2>
       <p>
-        Make the OS truly yours. Switch between curated presets (Classic Amber, Pixel Arcade, Paper Craft, Cyber Neon), import any custom font from the Google Fonts API, adjust RGB color tokens, and toggle atmospheric scanlines.
+        Make the OS truly yours. Switch between curated presets (Classic Amber, Pixel Arcade, Paper Craft, Cyber Neon), import any custom font from the Google Fonts API, adjust RGB color tokens, and enjoy theme-adaptive styling across all markdown code and cards.
       </p>
       <div class="feat-pills">
         <span class="pill">Google Fonts live loader</span>
         <span class="pill">4 Built-in presets</span>
-        <span class="pill">CRT scanlines &amp; grain</span>
+        <span class="pill">Theme-adaptive code styling</span>
         <span class="pill">JSON export &amp; import</span>
       </div>
     </div>
@@ -768,6 +778,44 @@
           <div style="background:#1e1e1e;border:1px solid #c89b3c;border-radius:8px;padding:12px;font-size:.72rem;color:#c89b3c;flex:1;">
             "You just crushed that blueprint task! Time for a coffee break? ✨"
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 10. HOME — Quick Launch -->
+  <div class="feature-row reverse" data-reveal>
+    <div class="feat-copy">
+      <span class="feat-tag">HOME</span>
+      <h2>Your launchpad,<br>ready when you are.</h2>
+      <p>
+        Personalized daily greeting, single-click launchers for your favorite URLs, and natural-language command triggers. Glance at your routines, agenda, and habit health instantly without app context-switching.
+      </p>
+      <div class="feat-pills">
+        <span class="pill">Quick Launch tiles</span>
+        <span class="pill">Natural language input</span>
+        <span class="pill">Today's routine snapshot</span>
+        <span class="pill">Habit streak health</span>
+      </div>
+    </div>
+    <div class="feat-img-wrap">
+      <img src="home.jpg" alt="PranshulOS Home Launchpad"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+      <div class="feat-mock" style="display:none;">
+        <div class="mock-bar">
+          <div class="mock-dot" style="background:#ff5f56"></div>
+          <div class="mock-dot" style="background:#ffbd2e"></div>
+          <div class="mock-dot" style="background:#27c93f"></div>
+          <span class="mock-title">HOME — LAUNCHPAD</span>
+        </div>
+        <div class="mock-body">
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px;margin-bottom:16px;">
+            <div style="background:#1e1e1e;border:1px solid #2a2a2a;border-radius:8px;padding:20px 12px;text-align:center;font-size:.7rem;color:#c89b3c;">▶ YouTube</div>
+            <div style="background:#1e1e1e;border:1px solid #2a2a2a;border-radius:8px;padding:20px 12px;text-align:center;font-size:.7rem;color:#c89b3c;">♪ Spotify</div>
+            <div style="background:#1e1e1e;border:1px solid #2a2a2a;border-radius:8px;padding:20px 12px;text-align:center;font-size:.7rem;color:#c89b3c;">● WhatsApp</div>
+            <div style="background:#1e1e1e;border:1px solid #2a2a2a;border-radius:8px;padding:20px 12px;text-align:center;font-size:.7rem;color:#c89b3c;">✦ Discord</div>
+          </div>
+          <div style="background:#161616;border:1px solid #2a2a2a;border-radius:8px;padding:12px 16px;font-family:'Courier New',monospace;font-size:.72rem;color:#6b6b6b;">try "github", "spotify", "docs"...</div>
         </div>
       </div>
     </div>
