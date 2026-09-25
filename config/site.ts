@@ -16,7 +16,7 @@ export const SITE_CONFIG = {
   // Pointing Variable: Primary Setup Executable Download URL
   // Update this single URL for new GitHub release artifacts!
   downloadUrl:
-    "https://github.com/Pranshul-Chopra/PranshulOS-/releases/download/v2.4.5/PranshulOS-Setup-2.4.5.exe",
+    "https://github.com/Pranshul-Chopra/PranshulOS-/releases/download/v2.4.6/PranshulOS-Setup-2.4.6.exe",
 
   // Primary User Feedback Form URL
   feedbackUrl:
