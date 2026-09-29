@@ -8,8 +8,8 @@
 
 export const SITE_CONFIG = {
   // Current Release Info
-  version: "v2.4.5",
-  versionLabel: "v2.4.5 stable",
+  version: "v2.4.6",
+  versionLabel: "v2.4.6 stable",
   releaseDate: "September 2026",
   platform: "Windows 10 / 11 64-bit",
 
