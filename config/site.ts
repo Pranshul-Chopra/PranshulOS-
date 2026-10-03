@@ -8,9 +8,9 @@
 
 export const SITE_CONFIG = {
   // Current Release Info
-  version: "v2.4.6",
-  versionLabel: "v2.4.6 stable",
-  releaseDate: "September 2026",
+  version: "v2.5",
+  versionLabel: "v2.5 stable",
+  releaseDate: "july 2026",
   platform: "Windows 10 / 11 64-bit",
 
   // Pointing Variable: Primary Setup Executable Download URL
