@@ -11,8 +11,28 @@ export interface ReleaseItem {
 
 export const RELEASES: ReleaseItem[] = [
   {
-    version: "v2.4.5",
+    version: "v3.0.0",
     badge: "CURRENT STABLE",
+    title: "Sovereign Mobile Ecosystem & Live Web Grounding",
+    tagline: "Peer-to-peer Port 5001 Android companion, Glance home-screen widgets, doc conflict branching, and live web grounding.",
+    date: "Oct 2026",
+    decisionRationale:
+      "Productivity shouldn't die when you step away from your desk, nor should mobile access require uploading your private database to a third-party cloud server. v3.0.0 pairs your Android phone directly to your desktop hub over Port 5001 (local Wi-Fi or private mesh) with 100% offline WAL persistence, Glance home-screen widgets, doc conflict branching, and zero cloud middlemen.",
+    changes: [
+      "Sovereign Mobile Companion (Kotlin Multiplatform + Jetpack Compose) with ultra-light ~3.4MB footprint",
+      "Port 5001 P2P sync gateway over local Wi-Fi or private overlay mesh (Tailscale/WireGuard)",
+      "5-Minute single-use vector SVG QR pairing with modular onboarding settings sync",
+      "Non-destructive document conflict branching engine (Title (Conflict from Mobile ...).md)",
+      "Native Android Glance home-screen widgets for Daily Agenda, Routines, and Sticky Notes",
+      "In-App GitHub Releases APK auto-updater (bypasses Play Store gatekeepers and fees)",
+      "Chibi AI live web grounding with DuckDuckGo + Reddit fallback and rate-limit guard",
+      "314 / 314 automated test cases verified passing with zero regressions",
+    ],
+    status: "current",
+  },
+  {
+    version: "v2.4.5",
+    badge: "SHIPPED",
     title: "Polish, Resilience & Multi-Journal Architecture",
     tagline: "Stack-preserving rollover, local journal logs, and rock-solid SQLite persistence.",
     date: "Sep 2026",
@@ -24,7 +44,7 @@ export const RELEASES: ReleaseItem[] = [
       "Instant 1-click DB schema migrations with zero data loss",
       "Enhanced Windows native tray integration and low-latency startup",
     ],
-    status: "current",
+    status: "shipped",
   },
   {
     version: "v2.4.0",
@@ -91,7 +111,7 @@ export const RELEASES: ReleaseItem[] = [
     status: "shipped",
   },
   {
-    version: "v3.0.0",
+    version: "v3.1.0",
     badge: "FUTURE HORIZON",
     title: "Autonomous Adaptive Operating Environment",
     tagline: "Personal context embeddings, proactive Chibi, and local semantic memory.",
@@ -102,7 +122,7 @@ export const RELEASES: ReleaseItem[] = [
       "Local vector embeddings via sqlite-vec for cross-document semantic search",
       "Proactive schedule balancing and workload risk detection",
       "Custom Chibi personality fine-tuning with local memory graph",
-      "Cross-device peer-to-peer encrypted sync without central servers",
+      "Multi-device mesh topology with automatic mDNS satellite discovery",
     ],
     status: "future",
   },

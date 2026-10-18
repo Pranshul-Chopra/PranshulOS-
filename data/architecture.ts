@@ -27,15 +27,15 @@ export const ARCHITECTURE_LAYERS: ArchitectureNode[] = [
   {
     id: "backend",
     name: "Local Service Engine",
-    role: "Local Compute & AI Gateway",
-    tech: "Python Flask · Local Process Daemon",
+    role: "Local Compute & Hub Orchestration",
+    tech: "Python Flask · Local Daemon · Port 5001 Gateway",
     description:
-      "A lightweight local daemon running exclusively on localhost (127.0.0.1). Mediates local Ollama models, executes data calculations, manages theme tokens, and handles file exports without ever routing data over the public internet.",
+      "A lightweight local daemon running on loopback (127.0.0.1:5000) with an opt-in Port 5001 gateway for mobile pairing. Mediates local Ollama models, grounds live queries via DuckDuckGo/Reddit heuristic search, manages theme tokens, and handles file exports without third-party cloud intermediaries.",
     details: [
-      "Binds strictly to localhost with zero open external ports",
-      "Direct integration with Ollama for 100% offline LLM inference",
-      "Sub-millisecond API response times via local loopback",
-      "Independent process lifecycle managed by the Electron shell",
+      "Core API binds strictly to 127.0.0.1; opt-in Mobile Gateway isolates to Port 5001",
+      "Direct integration with Ollama for offline LLM inference & Gemini fallback",
+      "Heuristic-scored web search grounding (DDG + Reddit) with rate-limit protection",
+      "Single-use 5-minute SVG vector QR token handshake for mobile authentication",
     ],
     icon: "Cpu",
   },
@@ -53,6 +53,21 @@ export const ARCHITECTURE_LAYERS: ArchitectureNode[] = [
       "Atomic transactions preventing data corruption on abrupt shutdowns",
     ],
     icon: "Database",
+  },
+  {
+    id: "satellite",
+    name: "Sovereign Mobile Satellite",
+    role: "Local Mesh Satellite & Companion Sync",
+    tech: "Port 5001 · Kotlin Multiplatform · Android WAL",
+    description:
+      "Extends your desktop sanctuary to Android without third-party cloud servers. An opt-in gateway serves delta synchronization and Chibi AI proxy requests exclusively over local Wi-Fi or private WireGuard/Tailscale mesh, secured by 5-minute single-use vector QR pairing tokens.",
+    details: [
+      "Zero internet exposure — operates strictly on LAN/WireGuard mesh",
+      "5-minute single-use vector SVG QR pairing handshake",
+      "On-device Android SQLite WAL database with offline delta queue",
+      "Non-destructive document conflict branching (Title (Conflict from Mobile ...).md)",
+    ],
+    icon: "Smartphone",
   },
   {
     id: "hardware",

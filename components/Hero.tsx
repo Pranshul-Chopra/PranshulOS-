@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Download, Github, Terminal, ArrowRight, ShieldCheck, Cpu, Database, MessageSquare } from "lucide-react";
+import { Download, Github, Terminal, ArrowRight, ShieldCheck, Cpu, Database, MessageSquare, Smartphone } from "lucide-react";
 import { SITE_CONFIG } from "@/config/site";
 
 export function Hero() {
@@ -53,7 +53,7 @@ export function Hero() {
           <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
         </span>
         <span className="font-mono text-[0.72rem] tracking-wider uppercase text-zinc-300">
-          {SITE_CONFIG.version} Stable · 100% Offline SQLite · {SITE_CONFIG.platform}
+          {SITE_CONFIG.version} Sovereign Ecosystem · Windows Desktop + Android Satellite
         </span>
       </motion.div>
 
@@ -71,7 +71,7 @@ export function Hero() {
           </span>
         </h1>
         <p className="text-base sm:text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto leading-relaxed font-normal">
-          PranshulOS is a local-first productivity shell for Windows that unifies tasks, goals, routines, notes, and visual blueprints into one personal command center — with zero cloud dependency.
+          PranshulOS is a sovereign productivity ecosystem that unifies tasks, goals, routines, notes, and visual blueprints across your Windows workstation and Android phone — with zero cloud middlemen.
         </p>
       </motion.div>
 
@@ -80,31 +80,37 @@ export function Hero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}
-        className="flex flex-col sm:flex-row items-center gap-3.5 mt-8 w-full sm:w-auto"
+        className="flex flex-col sm:flex-row items-center gap-3 mt-8 w-full sm:w-auto"
       >
         <a
           href={SITE_CONFIG.downloadUrl}
           download
-          className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl font-bold text-sm tracking-wide text-zinc-950 bg-gold hover:bg-gold-bright transition-all duration-200 shadow-xl shadow-gold/25 hover:shadow-gold/35 hover:-translate-y-0.5 active:translate-y-0"
+          className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl font-bold text-sm tracking-wide text-zinc-950 bg-gold hover:bg-gold-bright transition-all duration-200 shadow-xl shadow-gold/25 hover:shadow-gold/35 hover:-translate-y-0.5 active:translate-y-0"
         >
           <Download className="w-4 h-4" />
-          <span>Download PranshulOS {SITE_CONFIG.version}</span>
+          <span>Desktop {SITE_CONFIG.version} (.exe)</span>
+        </a>
+        <a
+          href="#mobile"
+          className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-5 py-3.5 rounded-xl font-semibold text-sm tracking-wide text-white bg-white/[0.07] hover:bg-white/[0.12] border border-white/15 hover:border-emerald-400/50 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 shadow-lg"
+        >
+          <Smartphone className="w-4 h-4 text-emerald-400" />
+          <span>Mobile Companion</span>
         </a>
         <a
           href={SITE_CONFIG.githubRepoUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-5 py-3.5 rounded-xl font-semibold text-sm tracking-wide text-white bg-white/[0.05] hover:bg-white/[0.1] border border-white/10 hover:border-gold/40 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
+          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl font-semibold text-sm tracking-wide text-zinc-300 hover:text-white bg-white/[0.03] hover:bg-white/[0.08] border border-white/10 hover:border-gold/30 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
         >
           <Github className="w-4 h-4" />
           <span>Source</span>
-          <ArrowRight className="w-3.5 h-3.5 text-zinc-400" />
         </a>
         <a
           href={SITE_CONFIG.feedbackUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl font-semibold text-xs tracking-wider text-zinc-400 hover:text-white bg-white/[0.02] hover:bg-white/[0.06] border border-white/10 hover:border-gold/30 transition-all duration-200"
+          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-3.5 py-3.5 rounded-xl font-semibold text-xs tracking-wider text-zinc-400 hover:text-white bg-white/[0.02] hover:bg-white/[0.06] border border-white/10 hover:border-gold/30 transition-all duration-200"
         >
           <MessageSquare className="w-3.5 h-3.5 text-gold" />
           <span>Feedback</span>
@@ -124,11 +130,15 @@ export function Hero() {
         </div>
         <div className="flex items-center gap-1.5">
           <Database className="w-3.5 h-3.5 text-gold" />
-          <span>Single-file SQLite storage</span>
+          <span>Local SQLite WAL persistence</span>
+        </div>
+        <div className="flex items-center gap-1.5">
+          <Smartphone className="w-3.5 h-3.5 text-emerald-400" />
+          <span>Port 5001 LAN/Mesh Gateway</span>
         </div>
         <div className="flex items-center gap-1.5">
           <Cpu className="w-3.5 h-3.5 text-sky-400" />
-          <span>Dual Ollama / Gemini AI</span>
+          <span>Dual Ollama / Gemini AI + Web Search</span>
         </div>
       </motion.div>
 

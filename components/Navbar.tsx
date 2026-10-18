@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Github, Download, Menu, X, Terminal, MessageSquare, ExternalLink } from "lucide-react";
+import { Github, Download, Menu, X, Terminal, MessageSquare, ExternalLink, Smartphone } from "lucide-react";
 import { SITE_CONFIG } from "@/config/site";
 
 export function Navbar() {
@@ -33,6 +33,7 @@ export function Navbar() {
   const navLinks = [
     { name: "Product", href: "#demo" },
     { name: "Features", href: "#features" },
+    { name: "Mobile", href: "#mobile" },
     { name: "Workflow", href: "#workflow" },
     { name: "Evolution", href: "#evolution" },
     { name: "Architecture", href: "#architecture" },
@@ -188,16 +189,25 @@ export function Navbar() {
                 <span>View on GitHub</span>
               </a>
               <a
+                href={SITE_CONFIG.mobileApkDownloadUrl}
+                download
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center justify-center gap-2.5 py-3 rounded-xl bg-white/[0.06] border border-white/15 text-white font-semibold text-sm hover:bg-white/10"
+              >
+                <Smartphone className="w-4 h-4 text-emerald-400" />
+                <span>Get Mobile APK {SITE_CONFIG.mobileVersion}</span>
+              </a>
+              <a
                 href={SITE_CONFIG.downloadUrl}
                 download
                 onClick={() => setMobileMenuOpen(false)}
                 className="flex items-center justify-center gap-2.5 py-3 rounded-xl bg-gold text-zinc-950 font-bold text-sm shadow-lg shadow-gold/25"
               >
                 <Download className="w-4 h-4" />
-                <span>Download PranshulOS {SITE_CONFIG.version}</span>
+                <span>Download Desktop {SITE_CONFIG.version} (.exe)</span>
               </a>
               <div className="text-center text-[0.7rem] font-mono text-zinc-500 mt-2">
-                100% Offline SQLite · {SITE_CONFIG.platform}
+                100% Offline SQLite · {SITE_CONFIG.platform} · Android 8.0+
               </div>
             </div>
           </motion.div>

@@ -1,37 +1,41 @@
 "use client";
 
-import { CheckCircle2, Sparkles, ArrowRight, Download, Github } from "lucide-react";
+import { CheckCircle2, Sparkles, ArrowRight, Download, Github, Smartphone } from "lucide-react";
 import { SITE_CONFIG } from "@/config/site";
 
 export function CurrentState() {
   const currentFeatures = [
     "Time-blocked Agenda with automatic stack-preserving rollover",
+    "Sovereign Mobile Companion (Android KMP + Compose Multiplatform)",
+    "Port 5001 P2P sync gateway over Wi-Fi / WireGuard with vector QR pairing",
+    "Android Glance interactive home-screen widgets (Agenda, Routines, Notes)",
+    "Non-destructive document conflict branching engine",
+    "In-App GitHub Releases APK auto-updater (no Play Store lock-in)",
     "Chibi AI Plan Mode with 1-Click direct SQLite apply",
+    "Dual Ollama (offline) + Gemini + Heuristic Live Web Search grounding",
     "Blueprints infinite node-graph workflow canvas with step runner",
     "Markdown Studio with Write, Split, and Live Preview viewports",
     "7-Day Monday–Sunday routine planner with daily habit anchors",
     "Personal Kanban tickets board with P0 / P1 / P2 priorities",
     "Multi-journal private logs with situational tagging",
     "Theme Studio with Google Fonts API live loader and token editor",
-    "Daily Morning Briefing digest opening on first daily launch",
-    "100% offline standalone Windows 10/11 application packaging",
   ];
 
   const futureRoadmap = [
     {
       phase: "01",
       title: "Local Semantic Memory",
-      desc: "Embedded vector database (sqlite-vec) to index all notes and logs with on-device semantic search.",
+      desc: "Embedded vector database (sqlite-vec) to index all documents and logs with on-device semantic vector retrieval.",
     },
     {
       phase: "02",
-      title: "Proactive Chibi Companion",
-      desc: "Anticipates schedule crunches, suggests workload balancing, and flags missed commitments autonomously.",
+      title: "Proactive Context Assistant",
+      desc: "Anticipates schedule crunches, suggests workload balancing, and flags missed commitments autonomously without polling cloud services.",
     },
     {
       phase: "03",
-      title: "Encrypted P2P Synchronizer",
-      desc: "Optional device-to-device local Wi-Fi synchronization without third-party cloud servers.",
+      title: "Multi-Platform Desktop Parity",
+      desc: "Native Linux (.deb / AppImage) and macOS binaries while maintaining 100% interoperable local SQLite file portability.",
     },
   ];
 
@@ -48,10 +52,10 @@ export function CurrentState() {
           </div>
 
           <h3 className="text-2xl sm:text-3xl font-extrabold text-white mb-2">
-            PranshulOS {SITE_CONFIG.version} Stable
+            PranshulOS {SITE_CONFIG.version} Sovereign Ecosystem
           </h3>
           <p className="text-zinc-400 text-sm leading-relaxed mb-6 font-normal">
-            Shipped, fully functional, and verified. Everything listed below is built, tested, and running on Windows desktop machines today.
+            Shipped, fully functional, and verified across 314 automated test cases. Everything listed below is built, tested, and actively running on Windows desktop and Android devices today.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
@@ -66,23 +70,31 @@ export function CurrentState() {
             ))}
           </div>
 
-          <div className="flex flex-wrap items-center gap-4 pt-6 border-t border-white/10">
+          <div className="flex flex-wrap items-center gap-3 pt-6 border-t border-white/10">
             <a
               href={SITE_CONFIG.downloadUrl}
               download
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gold hover:bg-gold-bright text-zinc-950 font-bold text-xs uppercase tracking-wider transition-all shadow-md shadow-gold/20"
             >
               <Download className="w-3.5 h-3.5" />
-              <span>Download {SITE_CONFIG.version} Setup</span>
+              <span>Desktop {SITE_CONFIG.version} (.exe)</span>
+            </a>
+            <a
+              href={SITE_CONFIG.mobileApkDownloadUrl}
+              download
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/[0.08] hover:bg-white/[0.14] border border-white/15 text-white font-semibold text-xs uppercase tracking-wider transition-all shadow-sm"
+            >
+              <Smartphone className="w-3.5 h-3.5 text-emerald-400" />
+              <span>Mobile {SITE_CONFIG.mobileVersion} (.apk)</span>
             </a>
             <a
               href={SITE_CONFIG.githubRepoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/[0.05] hover:bg-white/[0.1] border border-white/10 text-xs font-semibold uppercase tracking-wider text-zinc-300 transition-all"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/[0.03] hover:bg-white/[0.08] border border-white/10 text-xs font-semibold uppercase tracking-wider text-zinc-300 transition-all"
             >
               <Github className="w-3.5 h-3.5" />
-              <span>Inspect Code Repository</span>
+              <span>GitHub</span>
             </a>
           </div>
         </div>

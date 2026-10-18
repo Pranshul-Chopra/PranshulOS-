@@ -8,15 +8,22 @@
 
 export const SITE_CONFIG = {
   // Current Release Info
-  version: "v2.5",
-  versionLabel: "v2.5 stable",
-  releaseDate: "july 2026",
+  version: "v3.0.0",
+  versionLabel: "v3.0.0 Sovereign Ecosystem",
+  releaseDate: "October 2026",
   platform: "Windows 10 / 11 64-bit",
 
-  // Pointing Variable: Primary Setup Executable Download URL
-  // Update this single URL for new GitHub release artifacts!
+  // Desktop Setup Executable Download URL
   downloadUrl:
-    "https://github.com/Pranshul-Chopra/PranshulOS-/releases/download/v2.5.0/PranshulOS-Setup-2.5.0.exe",
+    "https://github.com/Pranshul-Chopra/PranshulOS-/releases/download/v3.0.0/PranshulOS-Setup-3.0.0.exe",
+
+  // Mobile Companion App Download URLs
+  mobileVersion: "v3.0.0",
+  mobilePlatform: "Android 8.0+ (ARM64 / x86_64)",
+  mobileApkDownloadUrl:
+    "https://github.com/Pranshul-Chopra/PranshulOS-/releases/download/v3.0.0/PranshulOS-Mobile-3.0.0.apk",
+  mobileAabDownloadUrl:
+    "https://github.com/Pranshul-Chopra/PranshulOS-/releases/download/v3.0.0/PranshulOS-Mobile-3.0.0.aab",
 
   // Primary User Feedback Form URL
   feedbackUrl:

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { ARCHITECTURE_LAYERS, ArchitectureNode } from "@/data/architecture";
-import { Monitor, Cpu, Database, HardDrive, ShieldCheck, ArrowDown, CheckCircle2 } from "lucide-react";
+import { Monitor, Cpu, Database, HardDrive, Smartphone, ShieldCheck, ArrowDown, CheckCircle2 } from "lucide-react";
 
 export function ArchitectureVisual() {
   const [selectedLayer, setSelectedLayer] = useState<string>("storage");
@@ -17,6 +17,8 @@ export function ArchitectureVisual() {
         return Cpu;
       case "Database":
         return Database;
+      case "Smartphone":
+        return Smartphone;
       default:
         return HardDrive;
     }

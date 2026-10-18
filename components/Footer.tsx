@@ -53,6 +53,13 @@ export function Footer() {
             <span>Download .exe</span>
           </a>
           <a
+            href={SITE_CONFIG.mobileApkDownloadUrl}
+            download
+            className="flex items-center gap-1.5 hover:text-emerald-400 transition-colors"
+          >
+            <span>Download .apk</span>
+          </a>
+          <a
             href={SITE_CONFIG.githubRepoUrl}
             target="_blank"
             rel="noopener noreferrer"

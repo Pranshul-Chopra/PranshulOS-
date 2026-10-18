@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FEATURES } from "@/data/features";
 import { Play, Sparkles, CheckCircle2, ArrowUpRight, Zap, ExternalLink } from "lucide-react";
+import { SITE_CONFIG } from "@/config/site";
 
 export function ProductShowcase() {
   const [selectedId, setSelectedId] = useState<string>("plan-mode");
@@ -133,7 +134,7 @@ export function ProductShowcase() {
             {/* Quick Actions Footer */}
             <div className="pt-6 border-t border-white/10 flex items-center justify-between">
               <span className="text-xs font-mono text-zinc-400">
-                PranshulOS v2.4.5 Module
+                PranshulOS {SITE_CONFIG.version} Module
               </span>
               <a
                 href="#features"

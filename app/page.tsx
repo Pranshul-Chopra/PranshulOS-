@@ -5,6 +5,7 @@ import { ProductShowcase } from "@/components/ProductShowcase";
 import { Philosophy } from "@/components/Philosophy";
 import { CoreFeatures } from "@/components/CoreFeatures";
 import { UnifiedWorkspace } from "@/components/UnifiedWorkspace";
+import { MobileAppSection } from "@/components/MobileAppSection";
 import { EvolutionTimeline } from "@/components/EvolutionTimeline";
 import { ArchitectureVisual } from "@/components/ArchitectureVisual";
 import { PrivacyCompare } from "@/components/PrivacyCompare";
@@ -36,6 +37,9 @@ export default function Home() {
 
       {/* Unified Workspace Connection Pipeline */}
       <UnifiedWorkspace />
+
+      {/* Sovereign Mobile Companion (Port 5001, KMP, Offline WAL, Glance Widgets) */}
+      <MobileAppSection />
 
       {/* Product Evolution & Decision History */}
       <EvolutionTimeline />
