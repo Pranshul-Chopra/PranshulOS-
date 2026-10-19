@@ -3,12 +3,20 @@
 import { useState } from "react";
 import { RELEASES, ReleaseItem } from "@/data/releases";
 import { GitCommit, Sparkles, CheckCircle2, Milestone, Clock } from "lucide-react";
+import { SITE_CONFIG } from "@/config/site";
 
 export function EvolutionTimeline() {
   const [filter, setFilter] = useState<"all" | "shipped" | "current" | "future">("all");
 
   const filteredReleases =
     filter === "all" ? RELEASES : RELEASES.filter((r) => r.status === filter);
+
+  const tabs: { id: "all" | "shipped" | "current" | "future"; label: string }[] = [
+    { id: "all", label: "Full Journey" },
+    { id: "current", label: `Current (${SITE_CONFIG.version})` },
+    { id: "shipped", label: "Shipped Milestones" },
+    { id: "future", label: "Future Vision" },
+  ];
 
   return (
     <section id="evolution" className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-white/[0.08]">
@@ -25,14 +33,7 @@ export function EvolutionTimeline() {
 
         {/* Release Status Filter */}
         <div className="flex flex-wrap items-center justify-center gap-2 mt-8">
-          {(
-            [
-              { id: "all", label: "Full Journey" },
-              { id: "current", label: "Current (v2.4.5)" },
-              { id: "shipped", label: "Shipped Milestones" },
-              { id: "future", label: "Future Vision" },
-            ] as const
-          ).map((tab) => (
+          {tabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setFilter(tab.id)}

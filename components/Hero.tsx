@@ -126,11 +126,11 @@ export function Hero() {
       >
         <div className="flex items-center gap-1.5">
           <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-          <span>Zero cloud telemetry</span>
+          <span>In-Process RSA-2048 TLS & Fingerprint Pinning</span>
         </div>
         <div className="flex items-center gap-1.5">
           <Database className="w-3.5 h-3.5 text-gold" />
-          <span>Local SQLite WAL persistence</span>
+          <span>Monotonic Sequence Sync & Tombstones</span>
         </div>
         <div className="flex items-center gap-1.5">
           <Smartphone className="w-3.5 h-3.5 text-emerald-400" />

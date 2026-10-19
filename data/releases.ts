@@ -11,8 +11,30 @@ export interface ReleaseItem {
 
 export const RELEASES: ReleaseItem[] = [
   {
-    version: "v3.0.0",
+    version: "v3.0.1",
     badge: "CURRENT STABLE",
+    title: "Sovereign Security Hardening & Data Integrity",
+    tagline: "In-process ephemeral TLS with SHA-256 fingerprint pinning, monotonic sequence delta sync, soft-delete tombstones, and Crockford Base32 pairing.",
+    date: "Oct 2026",
+    decisionRationale:
+      "As PranshulOS expanded into an active multi-device desktop and mobile companion ecosystem, cryptographic transport integrity and multi-device convergence invariants became critical. v3.0.1 hardens Port 5001 with zero-dependency pure-Python RSA-2048 X.509 v3 TLS certificates and SHA-256 fingerprint pinning, prevents dropped mutations with strictly monotonic sequence cursor pagination, shuts down offline resurrection with durable soft-delete tombstones, enforces server-authoritative clock-skew protection (60s ceiling), upgrades pairing to Crockford Base32 entropy with sliding-window rate limiting, and neutralizes injection vectors across shell navigation and AI markdown.",
+    changes: [
+      "Sovereign in-process TLS transport via cert_generator.py (pure Python RSA-2048 & X.509 v3 self-signed certs) wrapping Port 5001 WSGI",
+      "SHA-256 certificate fingerprint pinning (fp=<sha256>) embedded in QR codes; cleartext HTTP disabled in mobile manifest",
+      "Strictly monotonic sequence cursor pagination (change_id > cursor) in db.py eliminating missed mutations on concurrent writes",
+      "Durable soft-delete tombstones (deleted_at INTEGER DEFAULT NULL) with conflict_tombstone_wins LWW resolution preventing offline resurrection",
+      "Server-authoritative clock skew protection clamping timestamps to min(raw_ts, server_now + 60,000ms)",
+      "Ticket and task timestamp millisecond integer epoch normalization replacing text datetime('now')",
+      "PAIR-XXXX-XXXX Crockford Base32 pairing code entropy (~4.3B combinations) with persistent SQLite storage and sliding-window rate limiting (HTTP 429)",
+      "Injection neutralization: Electron will-navigate regex validation, Markdown URL scheme allowlisting (http/https/mailto), and HTML pre-escaping in untrusted AI markdown",
+      "Release verification: cryptographic SHA-256 checksums in /api/mobile/version, password-authenticated AES-256-GCM import in mobile, and localhost CORS reflection",
+      "314 / 314 automated test cases verified passing with zero regressions",
+    ],
+    status: "current",
+  },
+  {
+    version: "v3.0.0",
+    badge: "SHIPPED",
     title: "Sovereign Mobile Ecosystem & Live Web Grounding",
     tagline: "Peer-to-peer Port 5001 Android companion, Glance home-screen widgets, doc conflict branching, and live web grounding.",
     date: "Oct 2026",
@@ -28,7 +50,7 @@ export const RELEASES: ReleaseItem[] = [
       "Chibi AI live web grounding with DuckDuckGo + Reddit fallback and rate-limit guard",
       "314 / 314 automated test cases verified passing with zero regressions",
     ],
-    status: "current",
+    status: "shipped",
   },
   {
     version: "v2.4.5",

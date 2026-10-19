@@ -13,11 +13,16 @@ import {
   Palette,
   Workflow,
   CheckCircle2,
+  ShieldCheck,
+  Smartphone,
 } from "lucide-react";
 
 export function TechMarquee() {
   const itemsRow1 = [
     { name: "Embedded SQLite", desc: "ACID Local Storage", icon: Database },
+    { name: "In-Process TLS", desc: "Pure Python RSA-2048", icon: Lock },
+    { name: "SHA-256 Pinning", desc: "No Cleartext HTTP", icon: ShieldCheck },
+    { name: "Monotonic Cursor", desc: "change_id > cursor", icon: Database },
     { name: "Electron Shell", desc: "Native Windowing", icon: Monitor },
     { name: "Flask Engine", desc: "Localhost 127.0.0.1", icon: Cpu },
     { name: "Ollama Offline LLM", desc: "100% On-Device AI", icon: Zap },
@@ -28,6 +33,11 @@ export function TechMarquee() {
   ];
 
   const itemsRow2 = [
+    { name: "Soft Tombstones", desc: "Zombie Resurrection Defense", icon: CheckCircle2 },
+    { name: "PAIR-XXXX-XXXX", desc: "Crockford Base32 Entropy", icon: Terminal },
+    { name: "Clock Skew Ceiling", desc: "Server-Authoritative 60s", icon: ShieldCheck },
+    { name: "Anti-Injection Guards", desc: "Regex Shell & AI Escaping", icon: Lock },
+    { name: "Mobile Companion", desc: "KMP Android & Glance", icon: Smartphone },
     { name: "Theme Studio", desc: "Google Fonts API", icon: Palette },
     { name: "Global Hotkey", desc: "Ctrl + J Instant Launcher", icon: Terminal },
     { name: "Stack Preservation", desc: "Rollover Logic", icon: Layers },
@@ -35,7 +45,6 @@ export function TechMarquee() {
     { name: "Windows 10/11", desc: "Native Background Tray", icon: Monitor },
     { name: "Offline-First", desc: "Zero Auth / Cloud", icon: Lock },
     { name: "Daily Briefing", desc: "First-Boot Digest", icon: Sparkles },
-    { name: "Chibi Mascot", desc: "Reactive State Physics", icon: Zap },
   ];
 
   return (

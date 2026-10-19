@@ -10,18 +10,23 @@ export function PrivacyCompare() {
       cloud: "Remote servers, third-party multi-tenant databases",
     },
     {
+      feature: "Companion Sync Transport",
+      local: "In-process RSA-2048 TLS with SHA-256 fingerprint pinning (Zero cleartext)",
+      cloud: "Transits public cloud relays and third-party load balancers",
+    },
+    {
       feature: "Account & Authentication",
-      local: "Zero accounts required. Launch and write instantly.",
+      local: "Zero accounts required. Ephemeral PAIR-XXXX-XXXX Base32 codes.",
       cloud: "Mandatory email signup, passwords, OAuth tokens",
     },
     {
-      feature: "Offline Availability",
-      local: "100% functional with Wi-Fi completely disabled",
-      cloud: "Degrades or blocks access without internet connection",
+      feature: "Offline Availability & Sync",
+      local: "Monotonic sequence cursor & durable soft-delete tombstones",
+      cloud: "Degrades without connection; silent concurrent write clobbers",
     },
     {
       feature: "Data Portability & Backup",
-      local: "Single portable .sqlite file — copy anywhere anytime",
+      local: "Single portable .sqlite file & AES-256-GCM encrypted snapshots",
       cloud: "Proprietary JSON dumps, lock-in, rate-limited exports",
     },
     {

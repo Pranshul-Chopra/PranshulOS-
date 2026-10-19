@@ -5,12 +5,17 @@ import { SITE_CONFIG } from "@/config/site";
 
 export function CurrentState() {
   const currentFeatures = [
-    "Time-blocked Agenda with automatic stack-preserving rollover",
+    "In-process RSA-2048 TLS with SHA-256 certificate fingerprint pinning (Port 5001)",
+    "Strictly monotonic sequence cursor pagination (change_id > cursor) for delta sync",
+    "Durable soft-delete tombstones (conflict_tombstone_wins) preventing zombie resurrection",
+    "Server-authoritative clock skew protection (60,000ms ceiling) against far-future lockouts",
+    "Crockford Base32 PAIR-XXXX-XXXX pairing with sliding-window rate limiter (HTTP 429)",
+    "Shell will-navigate regex validation & HTML pre-escaping in AI markdown",
+    "Password-authenticated AES-256-GCM archive import & SHA-256 release checksums",
     "Sovereign Mobile Companion (Android KMP + Compose Multiplatform)",
-    "Port 5001 P2P sync gateway over Wi-Fi / WireGuard with vector QR pairing",
     "Android Glance interactive home-screen widgets (Agenda, Routines, Notes)",
-    "Non-destructive document conflict branching engine",
-    "In-App GitHub Releases APK auto-updater (no Play Store lock-in)",
+    "Non-destructive document conflict branching engine (Title (Conflict from Mobile).md)",
+    "Time-blocked Agenda with automatic stack-preserving rollover",
     "Chibi AI Plan Mode with 1-Click direct SQLite apply",
     "Dual Ollama (offline) + Gemini + Heuristic Live Web Search grounding",
     "Blueprints infinite node-graph workflow canvas with step runner",
@@ -55,7 +60,7 @@ export function CurrentState() {
             PranshulOS {SITE_CONFIG.version} Sovereign Ecosystem
           </h3>
           <p className="text-zinc-400 text-sm leading-relaxed mb-6 font-normal">
-            Shipped, fully functional, and verified across 314 automated test cases. Everything listed below is built, tested, and actively running on Windows desktop and Android devices today.
+            Shipped, fully functional, and verified across 314 automated test cases. Hardened with in-process RSA-2048 TLS, SHA-256 fingerprint pinning, monotonic sequence cursors, durable soft-delete tombstones, and Crockford Base32 pairing.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">

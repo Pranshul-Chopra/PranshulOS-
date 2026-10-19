@@ -23,9 +23,28 @@ import {
 import { SITE_CONFIG } from "@/config/site";
 
 export function MobileAppSection() {
-  const [activeTab, setActiveTab] = useState<"sync" | "parity" | "widgets" | "updater">("sync");
+  const [activeTab, setActiveTab] = useState<"sync" | "security" | "parity" | "widgets" | "updater">("security");
 
   const coreCapabilities = [
+    {
+      id: "security",
+      label: "Security Hardening (v3.0.1)",
+      icon: ShieldCheck,
+      title: "In-Process Ephemeral TLS & Convergence Integrity",
+      subtitle: "Pure-Python RSA-2048 X.509 certs, SHA-256 fingerprint pinning, and monotonic cursors.",
+      description:
+        "Port 5001 generates pure-Python RSA-2048 and self-signed X.509 v3 TLS certificates in-process (cert_generator.py) wrapping the WSGI socket with native SSL. QR deep-links embed the SHA-256 certificate fingerprint, permanently disabling cleartext HTTP. Delta feeds paginate monotonically by auto-increment change_id > cursor, and durable soft-delete tombstones prevent offline resurrection.",
+      bullets: [
+        "In-process pure-Python RSA-2048 & X.509 v3 TLS certificate generator (cert_generator.py)",
+        "QR deep-links embed SHA-256 fingerprint (fp=<sha256>) pinned by mobile companion",
+        "Strictly monotonic sequence cursor pagination (change_id > cursor) prevents dropped writes",
+        "Durable soft-delete tombstones (deleted_at) with conflict_tombstone_wins LWW resolution",
+        "PAIR-XXXX-XXXX Crockford Base32 entropy (~4.3B combinations) with sliding-window rate limit (HTTP 429)",
+        "Server-authoritative clock-skew protection clamping timestamps to min(raw_ts, server_now + 60,000ms)",
+      ],
+      badge: "v3.0.1 Hardened",
+      badgeColor: "text-amber-400 bg-amber-500/10 border-amber-500/20",
+    },
     {
       id: "sync",
       label: "P2P Port 5001 Sync",
@@ -35,8 +54,8 @@ export function MobileAppSection() {
       description:
         "The mobile companion connects directly to your desktop hub on Port 5001 over your local Wi-Fi or private encrypted mesh network (such as Tailscale or WireGuard). Data never routes through multi-tenant cloud storage, proprietary sync relays, or third-party servers.",
       bullets: [
-        "Local Wi-Fi & WireGuard / Tailscale private mesh connectivity",
-        "5-minute single-use vector SVG QR pairing handshake",
+        "Local Wi-Fi & WireGuard / Tailscale private mesh connectivity over encrypted HTTPS",
+        "5-minute single-use vector SVG QR pairing handshake with Crockford Base32 entropy",
         "Authoritative hub warning: connecting replaces local device data with hub DB",
         "Modular onboarding sync: user name, theme tokens, and persona transfer seamlessly",
       ],
@@ -86,7 +105,7 @@ export function MobileAppSection() {
       description:
         "No waiting for proprietary app store review queues. The mobile companion checks the official GitHub Releases API on demand, downloads new APK binaries directly, and invokes the standard Android Package Installer with full cryptographic integrity.",
       bullets: [
-        "Direct GitHub Releases API version checking",
+        "Direct GitHub Releases API version checking with SHA-256 release checksum verification",
         "In-app one-tap APK download and Package Installer invocation",
         "Zero Google Play account requirements or developer fees",
         "Clean, standalone ~3.4 MB APK footprint with zero telemetry SDKs",
@@ -220,11 +239,19 @@ export function MobileAppSection() {
                   </div>
                   <div className="flex items-center justify-between text-zinc-500">
                     <span>Protocol</span>
-                    <span>Direct LAN / WireGuard</span>
+                    <span className="text-zinc-300">HTTPS (In-Process TLS)</span>
                   </div>
                   <div className="flex items-center justify-between text-zinc-500">
-                    <span>Database</span>
-                    <span>SQLite WAL (Synced)</span>
+                    <span>Fingerprint</span>
+                    <span className="text-emerald-400 font-mono">fp=3a9f...b14e (Pinned)</span>
+                  </div>
+                  <div className="flex items-center justify-between text-zinc-500">
+                    <span>Pairing Code</span>
+                    <span className="text-gold font-mono">PAIR-W7KD-9M2X</span>
+                  </div>
+                  <div className="flex items-center justify-between text-zinc-500">
+                    <span>Delta Feed</span>
+                    <span className="text-zinc-300">Monotonic (change_id &gt; cursor)</span>
                   </div>
                 </div>
 
@@ -240,14 +267,17 @@ export function MobileAppSection() {
                   </div>
                   <div className="flex items-center gap-1.5 text-zinc-200">
                     <div className="w-3 h-3 rounded border border-white/30" />
-                    <span>Push v3.0.0 Release Binary</span>
+                    <span>Deploy v3.0.1 Security Hardening</span>
                   </div>
                 </div>
 
-                {/* Conflict Branching Callout */}
-                <div className="p-2 rounded-lg bg-white/[0.02] border border-white/5 text-[0.6rem] text-zinc-400 flex items-center gap-2">
-                  <GitBranch className="w-3.5 h-3.5 text-gold shrink-0" />
-                  <span className="truncate">Auto-branch: Docs (Conflict from Mobile).md</span>
+                {/* Conflict Branching & Tombstone Callout */}
+                <div className="p-2 rounded-lg bg-white/[0.02] border border-white/5 text-[0.6rem] text-zinc-400 flex items-center justify-between">
+                  <div className="flex items-center gap-1.5">
+                    <GitBranch className="w-3.5 h-3.5 text-gold shrink-0" />
+                    <span className="truncate">Docs (Conflict Branching)</span>
+                  </div>
+                  <span className="text-[0.58rem] font-mono text-emerald-400">Tombstones Active</span>
                 </div>
 
                 {/* Chibi status pill */}
